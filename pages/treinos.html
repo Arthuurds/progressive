@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Progressive — Rotinas de Treino</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
@@ -15,16 +16,16 @@
         <div class="user-info">
             <span class="user-name">Rodrigo Silva</span>
             <span class="avatar">RS</span>
-            <a href="../index.html" class="btn-logout">🚪</a>
+            <a href="../index.html" class="btn-logout" title="Sair" aria-label="Sair">🚪</a>
         </div>
     </header>
 
     <div class="layout">
         <aside class="sidebar">
-            <nav>
+            <nav aria-label="Navegação principal">
                 <ul>
                     <li><a href="dashboard.html">📈 Visão Geral</a></li>
-                    <li class="active"><a href="treinos.html">💪 Meus Treinos</a></li>
+                    <li class="active"><a href="treinos.html" aria-current="page">💪 Meus Treinos</a></li>
                     <li><a href="biblioteca.html">🏋️ Biblioteca / PRs</a></li>
                     <li><a href="evolucao.html">📊 Evolução & Cargas</a></li>
                     <li><a href="calculadora.html">🧮 Calculadoras 1RM</a></li>
@@ -76,7 +77,7 @@
                 <article class="routine-card">
                     <header class="routine-card-header">
                         <span class="badge">FICHA C</span>
-                        <span class="count">1 Exercícios</span>
+                        <span class="count">1 Exercício</span>
                     </header>
                     <h3>Treino C – Pernas Completo</h3>
                     <ul class="exercise-preview-list">

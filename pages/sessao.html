@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Progressive — Sessão em Andamento</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
@@ -19,7 +20,7 @@
     <!-- Barra de Cronómetro de Descanso -->
     <section class="timer-bar">
         <div class="timer-display">
-            <span>⏱️️ DESCANSO</span>
+            <span>⏱️ DESCANSO</span>
             <time>00:00</time>
         </div>
         <div class="timer-controls">
@@ -50,27 +51,27 @@
                 <tbody>
                     <tr>
                         <td>Série 1</td>
-                        <td><input type="number" value="85"> kg</td>
-                        <td><input type="number" value="10"> reps</td>
-                        <td><input type="checkbox" checked></td>
+                        <td><label for="carga-supino-1" class="sr-only">Carga da série 1 (Supino) em kg</label><input id="carga-supino-1" name="carga-supino-1" type="number" value="85"> kg</td>
+                        <td><label for="reps-supino-1" class="sr-only">Repetições da série 1 (Supino)</label><input id="reps-supino-1" name="reps-supino-1" type="number" value="10"> reps</td>
+                        <td><label for="ok-supino-1" class="sr-only">Série 1 concluída (Supino)</label><input type="checkbox" id="ok-supino-1" name="ok-supino-1" checked></td>
                     </tr>
                     <tr>
                         <td>Série 2</td>
-                        <td><input type="number" value="85"> kg</td>
-                        <td><input type="number" value="10"> reps</td>
-                        <td><input type="checkbox" checked></td>
+                        <td><label for="carga-supino-2" class="sr-only">Carga da série 2 (Supino) em kg</label><input id="carga-supino-2" name="carga-supino-2" type="number" value="85"> kg</td>
+                        <td><label for="reps-supino-2" class="sr-only">Repetições da série 2 (Supino)</label><input id="reps-supino-2" name="reps-supino-2" type="number" value="10"> reps</td>
+                        <td><label for="ok-supino-2" class="sr-only">Série 2 concluída (Supino)</label><input type="checkbox" id="ok-supino-2" name="ok-supino-2" checked></td>
                     </tr>
                     <tr>
                         <td>Série 3</td>
-                        <td><input type="number" value="85"> kg</td>
-                        <td><input type="number" value="10"> reps</td>
-                        <td><input type="checkbox" checked></td>
+                        <td><label for="carga-supino-3" class="sr-only">Carga da série 3 (Supino) em kg</label><input id="carga-supino-3" name="carga-supino-3" type="number" value="85"> kg</td>
+                        <td><label for="reps-supino-3" class="sr-only">Repetições da série 3 (Supino)</label><input id="reps-supino-3" name="reps-supino-3" type="number" value="10"> reps</td>
+                        <td><label for="ok-supino-3" class="sr-only">Série 3 concluída (Supino)</label><input type="checkbox" id="ok-supino-3" name="ok-supino-3" checked></td>
                     </tr>
                     <tr>
                         <td>Série 4</td>
-                        <td><input type="number" value="85"> kg</td>
-                        <td><input type="number" value="10"> reps</td>
-                        <td><input type="checkbox" checked></td>
+                        <td><label for="carga-supino-4" class="sr-only">Carga da série 4 (Supino) em kg</label><input id="carga-supino-4" name="carga-supino-4" type="number" value="85"> kg</td>
+                        <td><label for="reps-supino-4" class="sr-only">Repetições da série 4 (Supino)</label><input id="reps-supino-4" name="reps-supino-4" type="number" value="10"> reps</td>
+                        <td><label for="ok-supino-4" class="sr-only">Série 4 concluída (Supino)</label><input type="checkbox" id="ok-supino-4" name="ok-supino-4" checked></td>
                     </tr>
                 </tbody>
             </table>
@@ -95,21 +96,21 @@
                 <tbody>
                     <tr>
                         <td>Série 1</td>
-                        <td><input type="number" value="28"> kg</td>
-                        <td><input type="number" value="10"> reps</td>
-                        <td><input type="checkbox" checked></td>
+                        <td><label for="carga-desenv-1" class="sr-only">Carga da série 1 (Desenvolvimento) em kg</label><input id="carga-desenv-1" name="carga-desenv-1" type="number" value="28"> kg</td>
+                        <td><label for="reps-desenv-1" class="sr-only">Repetições da série 1 (Desenvolvimento)</label><input id="reps-desenv-1" name="reps-desenv-1" type="number" value="10"> reps</td>
+                        <td><label for="ok-desenv-1" class="sr-only">Série 1 concluída (Desenvolvimento)</label><input type="checkbox" id="ok-desenv-1" name="ok-desenv-1" checked></td>
                     </tr>
                     <tr>
                         <td>Série 2</td>
-                        <td><input type="number" value="28"> kg</td>
-                        <td><input type="number" value="10"> reps</td>
-                        <td><input type="checkbox" checked></td>
+                        <td><label for="carga-desenv-2" class="sr-only">Carga da série 2 (Desenvolvimento) em kg</label><input id="carga-desenv-2" name="carga-desenv-2" type="number" value="28"> kg</td>
+                        <td><label for="reps-desenv-2" class="sr-only">Repetições da série 2 (Desenvolvimento)</label><input id="reps-desenv-2" name="reps-desenv-2" type="number" value="10"> reps</td>
+                        <td><label for="ok-desenv-2" class="sr-only">Série 2 concluída (Desenvolvimento)</label><input type="checkbox" id="ok-desenv-2" name="ok-desenv-2" checked></td>
                     </tr>
                     <tr>
                         <td>Série 3</td>
-                        <td><input type="number" value="28"> kg</td>
-                        <td><input type="number" value="10"> reps</td>
-                        <td><input type="checkbox" checked></td>
+                        <td><label for="carga-desenv-3" class="sr-only">Carga da série 3 (Desenvolvimento) em kg</label><input id="carga-desenv-3" name="carga-desenv-3" type="number" value="28"> kg</td>
+                        <td><label for="reps-desenv-3" class="sr-only">Repetições da série 3 (Desenvolvimento)</label><input id="reps-desenv-3" name="reps-desenv-3" type="number" value="10"> reps</td>
+                        <td><label for="ok-desenv-3" class="sr-only">Série 3 concluída (Desenvolvimento)</label><input type="checkbox" id="ok-desenv-3" name="ok-desenv-3" checked></td>
                     </tr>
                 </tbody>
             </table>

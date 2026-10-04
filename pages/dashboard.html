@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Progressive — Visão Geral</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
@@ -17,16 +18,16 @@
             <span class="user-name">Rodrigo Silva</span>
             <span class="user-meta">Hipertrofia • 78.5 kg</span>
             <span class="avatar">RS</span>
-            <a href="../index.html" class="btn-logout" title="Sair">🚪</a>
+            <a href="../index.html" class="btn-logout" title="Sair" aria-label="Sair">🚪</a>
         </div>
     </header>
 
     <div class="layout">
         <!-- Navegação Lateral Semântica -->
         <aside class="sidebar">
-            <nav>
+            <nav aria-label="Navegação principal">
                 <ul>
-                    <li class="active"><a href="dashboard.html">📈 Visão Geral</a></li>
+                    <li class="active"><a href="dashboard.html" aria-current="page">📈 Visão Geral</a></li>
                     <li><a href="treinos.html">💪 Meus Treinos</a></li>
                     <li><a href="biblioteca.html">🏋️ Biblioteca / PRs</a></li>
                     <li><a href="evolucao.html">📊 Evolução & Cargas</a></li>
@@ -41,25 +42,25 @@
             <!-- Cards de Métricas Principais -->
             <section class="metrics-grid">
                 <article class="metric-card">
-                    <h3>TREINOS CONCLUÍDOS 🔥</h3>
+                    <h2>TREINOS CONCLUÍDOS 🔥</h2>
                     <p class="metric-value">14</p>
                     <span class="metric-sub">+3 esta semana</span>
                 </article>
 
                 <article class="metric-card">
-                    <h3>VOLUME TOTAL 🛍️</h3>
+                    <h2>VOLUME TOTAL 🛍️</h2>
                     <p class="metric-value">24.8t</p>
                     <span class="metric-sub">Toneladas levantadas</span>
                 </article>
 
                 <article class="metric-card">
-                    <h3>RECORDES PESSOAIS 🏆</h3>
+                    <h2>RECORDES PESSOAIS 🏆</h2>
                     <p class="metric-value">8</p>
                     <span class="metric-sub">PRs Batidos</span>
                 </article>
 
                 <article class="metric-card">
-                    <h3>PESO CORPORAL ⚖️</h3>
+                    <h2>PESO CORPORAL ⚖️</h2>
                     <p class="metric-value">78.5 kg</p>
                     <span class="metric-sub">Meta: 82.0 kg</span>
                 </article>
@@ -70,7 +71,7 @@
                 <div class="workout-info">
                     <span class="badge">PRÓXIMO TREINO DO DIA</span>
                     <h2>Treino A – Peito, Ombro & Tríceps</h2>
-                    <p>6 Exercícios • Supino Reto, Desenvolvimento, Paralelas...</p>
+                    <p>3 Exercícios • Supino Reto, Desenvolvimento, Tríceps Testa</p>
                 </div>
                 <a href="sessao.html" class="btn-start">▶ Iniciar Sessão de Treino</a>
             </section>
@@ -82,7 +83,7 @@
                     <h2>📊 Volume Semanal de Carga (kg)</h2>
                     <figure class="chart-container">
                         <!-- Representação HTML semântica das barras do gráfico -->
-                        <div class="bar-chart-placeholder">
+                        <div class="bar-chart-placeholder" role="img" aria-label="Volume por dia: Seg 4100 kg, Ter 5000 kg, Qua 0 kg, Qui 4800 kg, Sex 5600 kg, Sáb 3900 kg, Dom 0 kg">
                             <div class="bar" style="height: 70%;" title="Seg: 4100kg"><span>Seg</span></div>
                             <div class="bar" style="height: 85%;" title="Ter: 5000kg"><span>Ter</span></div>
                             <div class="bar" style="height: 0%;" title="Qua: 0kg"><span>Qua</span></div>
@@ -95,7 +96,7 @@
                     </figure>
                 </section>
 
-                <aside class="widget-records">
+                <section class="widget-records">
                     <h2>🥇 Recordes Pessoais (PR)</h2>
                     <ul class="pr-list">
                         <li><span>Supino Reto com Barra</span> <strong>100 kg</strong></li>
@@ -104,7 +105,7 @@
                         <li><span>Desenvolvimento c/ Halteres</span> <strong>32 kg</strong></li>
                     </ul>
                     <a href="biblioteca.html" class="btn-link">Ver Todos os Exercícios</a>
-                </aside>
+                </section>
 
             </div>
 

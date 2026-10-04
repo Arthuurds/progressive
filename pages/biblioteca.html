@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Progressive — Biblioteca de Exercícios</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
@@ -15,17 +16,17 @@
         <div class="user-info">
             <span class="user-name">Rodrigo Silva</span>
             <span class="avatar">RS</span>
-            <a href="../index.html" class="btn-logout">🚪</a>
+            <a href="../index.html" class="btn-logout" title="Sair" aria-label="Sair">🚪</a>
         </div>
     </header>
 
     <div class="layout">
         <aside class="sidebar">
-            <nav>
+            <nav aria-label="Navegação principal">
                 <ul>
                     <li><a href="dashboard.html">📈 Visão Geral</a></li>
                     <li><a href="treinos.html">💪 Meus Treinos</a></li>
-                    <li class="active"><a href="biblioteca.html">🏋️ Biblioteca / PRs</a></li>
+                    <li class="active"><a href="biblioteca.html" aria-current="page">🏋️ Biblioteca / PRs</a></li>
                     <li><a href="evolucao.html">📊 Evolução & Cargas</a></li>
                     <li><a href="calculadora.html">🧮 Calculadoras 1RM</a></li>
                 </ul>
@@ -44,8 +45,10 @@
 
             <!-- Barra de Filtros e Pesquisa -->
             <section class="filter-bar">
-                <input type="search" placeholder="🔍 Buscar exercício...">
-                <select>
+                <label for="busca" class="sr-only">Buscar exercício</label>
+                <input type="search" id="busca" name="busca" placeholder="🔍 Buscar exercício...">
+                <label for="grupo" class="sr-only">Grupo muscular</label>
+                <select id="grupo" name="grupo">
                     <option value="todos">Todos os Grupos Musculares</option>
                     <option value="peitoral">Peitoral</option>
                     <option value="pernas">Pernas</option>
