@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive — Calculadora 1RM</title>
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <span class="logo">🏋️</span>
+            <h1>PROGRESSIVE <span>TREINO & EVOLUÇÃO</span></h1>
+        </div>
+        <div class="user-info">
+            <span class="user-name">Rodrigo Silva</span>
+            <span class="avatar">RS</span>
+            <a href="../index.html" class="btn-logout">🚪</a>
+        </div>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html">📈 Visão Geral</a></li>
+                    <li><a href="treinos.html">💪 Meus Treinos</a></li>
+                    <li><a href="biblioteca.html">🏋️ Biblioteca / PRs</a></li>
+                    <li><a href="evolucao.html">📊 Evolução & Cargas</a></li>
+                    <li class="active"><a href="calculadora.html">🧮 Calculadoras 1RM</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-title-bar">
+                <div>
+                    <h2>Calculadora de 1RM (Carga Máxima)</h2>
+                    <p>Estime sua repetição máxima teórica usando fórmulas validadas</p>
+                </div>
+            </header>
+
+            <div class="calculator-grid">
+                
+                <!-- Formulário de Entrada -->
+                <section class="calc-form-card">
+                    <h3>Calcular Repetição Máxima</h3>
+                    <form action="#" method="GET">
+                        <div class="form-group">
+                            <label for="carga">Carga Utilizada (kg)</label>
+                            <input type="number" id="carga" value="80" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reps">Repetições Executadas</label>
+                            <input type="number" id="reps" value="8" required>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Calcular</button>
+                    </form>
+                </section>
+
+                <!-- Painel de Resultados -->
+                <aside class="calc-result-card">
+                    <span class="formula-tag">ESTIMATIVA DE 1RM (EPLEY)</span>
+                    <p class="result-value">101.3 kg</p>
+                    <p class="result-sub">Esta é a sua carga teórica máxima para 1 repetição perfeita.</p>
+
+                    <hr>
+
+                    <div class="percentages-grid">
+                        <div>
+                            <span>90% 1RM</span>
+                            <strong>91 kg</strong>
+                        </div>
+                        <div>
+                            <span>80% 1RM</span>
+                            <strong>81 kg</strong>
+                        </div>
+                        <div>
+                            <span>70% 1RM</span>
+                            <strong>71 kg</strong>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

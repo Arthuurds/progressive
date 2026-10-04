@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive — Biblioteca de Exercícios</title>
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <span class="logo">🏋️</span>
+            <h1>PROGRESSIVE <span>TREINO & EVOLUÇÃO</span></h1>
+        </div>
+        <div class="user-info">
+            <span class="user-name">Rodrigo Silva</span>
+            <span class="avatar">RS</span>
+            <a href="../index.html" class="btn-logout">🚪</a>
+        </div>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html">📈 Visão Geral</a></li>
+                    <li><a href="treinos.html">💪 Meus Treinos</a></li>
+                    <li class="active"><a href="biblioteca.html">🏋️ Biblioteca / PRs</a></li>
+                    <li><a href="evolucao.html">📊 Evolução & Cargas</a></li>
+                    <li><a href="calculadora.html">🧮 Calculadoras 1RM</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            
+            <header class="page-title-bar">
+                <div>
+                    <h2>Biblioteca de Exercícios</h2>
+                    <p>Histórico de cargas, repetições e recordes individuais</p>
+                </div>
+                <button type="button" class="btn-primary">➕ Cadastrar Exercício</button>
+            </header>
+
+            <!-- Barra de Filtros e Pesquisa -->
+            <section class="filter-bar">
+                <input type="search" placeholder="🔍 Buscar exercício...">
+                <select>
+                    <option value="todos">Todos os Grupos Musculares</option>
+                    <option value="peitoral">Peitoral</option>
+                    <option value="pernas">Pernas</option>
+                    <option value="costas">Costas</option>
+                    <option value="ombros">Ombros</option>
+                    <option value="biceps">Bíceps</option>
+                    <option value="triceps">Tríceps</option>
+                </select>
+            </section>
+
+            <!-- Lista de Cartões de Exercícios -->
+            <section class="library-grid">
+                
+                <article class="library-card">
+                    <span class="group-tag">PEITORAL</span>
+                    <h3>Supino Reto com Barra</h3>
+                    <p>Recorde Atual: <strong>100 kg</strong></p>
+                    <div class="card-actions">
+                        <a href="detalhes.html" class="btn-link">📊 Ver Detalhes</a>
+                        <button type="button" class="btn-secondary">Atualizar PR</button>
+                    </div>
+                </article>
+
+                <article class="library-card">
+                    <span class="group-tag">PERNAS</span>
+                    <h3>Agachamento Livre</h3>
+                    <p>Recorde Atual: <strong>130 kg</strong></p>
+                    <div class="card-actions">
+                        <a href="detalhes.html" class="btn-link">📊 Ver Detalhes</a>
+                        <button type="button" class="btn-secondary">Atualizar PR</button>
+                    </div>
+                </article>
+
+                <article class="library-card">
+                    <span class="group-tag">COSTAS</span>
+                    <h3>Levantamento Terra</h3>
+                    <p>Recorde Atual: <strong>150 kg</strong></p>
+                    <div class="card-actions">
+                        <a href="detalhes.html" class="btn-link">📊 Ver Detalhes</a>
+                        <button type="button" class="btn-secondary">Atualizar PR</button>
+                    </div>
+                </article>
+
+                <article class="library-card">
+                    <span class="group-tag">OMBROS</span>
+                    <h3>Desenvolvimento c/ Halteres</h3>
+                    <p>Recorde Atual: <strong>32 kg</strong></p>
+                    <div class="card-actions">
+                        <a href="detalhes.html" class="btn-link">📊 Ver Detalhes</a>
+                        <button type="button" class="btn-secondary">Atualizar PR</button>
+                    </div>
+                </article>
+
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive — Análise de Sobrecarga</title>
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <span class="logo">🏋️</span>
+            <h1>PROGRESSIVE <span>TREINO & EVOLUÇÃO</span></h1>
+        </div>
+        <div class="user-info">
+            <span class="user-name">Rodrigo Silva</span>
+            <span class="avatar">RS</span>
+            <a href="../index.html" class="btn-logout">🚪</a>
+        </div>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html">📈 Visão Geral</a></li>
+                    <li><a href="treinos.html">💪 Meus Treinos</a></li>
+                    <li><a href="biblioteca.html">🏋️ Biblioteca / PRs</a></li>
+                    <li class="active"><a href="evolucao.html">📊 Evolução & Cargas</a></li>
+                    <li><a href="calculadora.html">🧮 Calculadoras 1RM</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-title-bar">
+                <div>
+                    <h2>Análise de Sobrecarga Progressiva</h2>
+                    <p>Acompanhe a evolução de peso levantado para cada exercício</p>
+                </div>
+            </header>
+
+            <section class="chart-card">
+                <div class="chart-header">
+                    <label for="select-exercicio">📈 Selecione o Exercício:</label>
+                    <select id="select-exercicio">
+                        <option value="supino">Supino Reto com Barra</option>
+                        <option value="agachamento">Agachamento Livre</option>
+                        <option value="terra">Levantamento Terra</option>
+                    </select>
+                </div>
+
+                <!-- Gráfico de Linha em SVG -->
+                <figure class="line-chart-wrapper">
+                    <svg viewBox="0 0 500 200" width="100%" height="250">
+                        <!-- Grade do Gráfico -->
+                        <line x1="40" y1="20" x2="480" y2="20" stroke="#222" />
+                        <line x1="40" y1="60" x2="480" y2="60" stroke="#222" />
+                        <line x1="40" y1="100" x2="480" y2="100" stroke="#222" />
+                        <line x1="40" y1="140" x2="480" y2="140" stroke="#222" />
+                        <line x1="40" y1="180" x2="480" y2="180" stroke="#222" />
+
+                        <!-- Linha de Evolução Verde -->
+                        <polyline fill="none" stroke="#10b981" stroke-width="3" points="50,170 150,130 250,100 350,70 450,30" />
+                        
+                        <!-- Pontos das Sessões -->
+                        <circle cx="50" cy="170" r="4" fill="#10b981" />
+                        <circle cx="150" cy="130" r="4" fill="#10b981" />
+                        <circle cx="250" cy="100" r="4" fill="#10b981" />
+                        <circle cx="350" cy="70" r="4" fill="#10b981" />
+                        <circle cx="450" cy="30" r="4" fill="#10b981" />
+                    </svg>
+                    <figcaption>Evolução da carga (kg) da Sessão 1 (80kg) até à Sessão 5 (100kg).</figcaption>
+                </figure>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
