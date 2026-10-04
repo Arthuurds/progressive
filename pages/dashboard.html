@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive — Visão Geral</title>
+</head>
+<body>
+
+    <!-- Bar de Topo Geral -->
+    <header class="topbar">
+        <div class="brand">
+            <span class="logo">🏋️</span>
+            <h1>PROGRESSIVE <span>TREINO & EVOLUÇÃO</span></h1>
+        </div>
+        <div class="user-info">
+            <span class="user-name">Rodrigo Silva</span>
+            <span class="user-meta">Hipertrofia • 78.5 kg</span>
+            <span class="avatar">RS</span>
+            <a href="../index.html" class="btn-logout" title="Sair">🚪</a>
+        </div>
+    </header>
+
+    <div class="layout">
+        <!-- Navegação Lateral Semântica -->
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li class="active"><a href="dashboard.html">📈 Visão Geral</a></li>
+                    <li><a href="treinos.html">💪 Meus Treinos</a></li>
+                    <li><a href="biblioteca.html">🏋️ Biblioteca / PRs</a></li>
+                    <li><a href="evolucao.html">📊 Evolução & Cargas</a></li>
+                    <li><a href="calculadora.html">🧮 Calculadoras 1RM</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo Principal do Dashboard -->
+        <main class="main-content">
+            
+            <!-- Cards de Métricas Principais -->
+            <section class="metrics-grid">
+                <article class="metric-card">
+                    <h3>TREINOS CONCLUÍDOS 🔥</h3>
+                    <p class="metric-value">14</p>
+                    <span class="metric-sub">+3 esta semana</span>
+                </article>
+
+                <article class="metric-card">
+                    <h3>VOLUME TOTAL 🛍️</h3>
+                    <p class="metric-value">24.8t</p>
+                    <span class="metric-sub">Toneladas levantadas</span>
+                </article>
+
+                <article class="metric-card">
+                    <h3>RECORDES PESSOAIS 🏆</h3>
+                    <p class="metric-value">8</p>
+                    <span class="metric-sub">PRs Batidos</span>
+                </article>
+
+                <article class="metric-card">
+                    <h3>PESO CORPORAL ⚖️</h3>
+                    <p class="metric-value">78.5 kg</p>
+                    <span class="metric-sub">Meta: 82.0 kg</span>
+                </article>
+            </section>
+
+            <!-- Banner de Ação Rápida: Treino do Dia -->
+            <section class="next-workout-banner">
+                <div class="workout-info">
+                    <span class="badge">PRÓXIMO TREINO DO DIA</span>
+                    <h2>Treino A – Peito, Ombro & Tríceps</h2>
+                    <p>6 Exercícios • Supino Reto, Desenvolvimento, Paralelas...</p>
+                </div>
+                <a href="sessao.html" class="btn-start">▶ Iniciar Sessão de Treino</a>
+            </section>
+
+            <!-- Área Inferior: Gráfico de Volume + Tabela de PRs -->
+            <div class="dashboard-widgets">
+                
+                <section class="widget-chart">
+                    <h2>📊 Volume Semanal de Carga (kg)</h2>
+                    <figure class="chart-container">
+                        <!-- Representação HTML semântica das barras do gráfico -->
+                        <div class="bar-chart-placeholder">
+                            <div class="bar" style="height: 70%;" title="Seg: 4100kg"><span>Seg</span></div>
+                            <div class="bar" style="height: 85%;" title="Ter: 5000kg"><span>Ter</span></div>
+                            <div class="bar" style="height: 0%;" title="Qua: 0kg"><span>Qua</span></div>
+                            <div class="bar" style="height: 80%;" title="Qui: 4800kg"><span>Qui</span></div>
+                            <div class="bar" style="height: 95%;" title="Sex: 5600kg"><span>Sex</span></div>
+                            <div class="bar" style="height: 65%;" title="Sáb: 3900kg"><span>Sáb</span></div>
+                            <div class="bar" style="height: 0%;" title="Dom: 0kg"><span>Dom</span></div>
+                        </div>
+                        <figcaption>Gráfico com o volume total trabalhado em cada dia da semana corrente.</figcaption>
+                    </figure>
+                </section>
+
+                <aside class="widget-records">
+                    <h2>🥇 Recordes Pessoais (PR)</h2>
+                    <ul class="pr-list">
+                        <li><span>Supino Reto com Barra</span> <strong>100 kg</strong></li>
+                        <li><span>Agachamento Livre</span> <strong>130 kg</strong></li>
+                        <li><span>Levantamento Terra</span> <strong>150 kg</strong></li>
+                        <li><span>Desenvolvimento c/ Halteres</span> <strong>32 kg</strong></li>
+                    </ul>
+                    <a href="biblioteca.html" class="btn-link">Ver Todos os Exercícios</a>
+                </aside>
+
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
