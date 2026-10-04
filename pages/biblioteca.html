@@ -42,6 +42,91 @@
                 </div>
                 <button type="button" class="btn-primary">➕ Cadastrar Exercício</button>
             </header>
+            
+            <section class="add-exercise-section" id="form-cadastro-exercicio">
+                <h3>Cadastrar Novo Exercício</h3>
+                
+                <form action="#" method="POST" class="exercise-form">
+                    
+                    <!-- Campo Texto: Nome -->
+                    <div class="form-group">
+                        <label for="nome-exercicio">Nome do Exercício:</label>
+                        <input type="text" id="nome-exercicio" name="nome_exercicio" required placeholder="Ex: Supino Inclinado com Halteres">
+                    </div>
+
+                    <!-- Seleção: Grupo Muscular -->
+                    <div class="form-group">
+                        <label for="grupo-muscular">Grupo Muscular Principal:</label>
+                        <select id="grupo-muscular" name="grupo_muscular" required>
+                            <option value="">Selecione um grupo...</option>
+                            <option value="peitoral">Peitoral</option>
+                            <option value="costas">Costas</option>
+                            <option value="pernas">Pernas</option>
+                            <option value="ombros">Ombros</option>
+                            <option value="biceps">Bíceps</option>
+                            <option value="triceps">Tríceps</option>
+                            <option value="core">Core / Abdómen</option>
+                        </select>
+                    </div>
+
+                    <!-- Seleção: Equipamento -->
+                    <div class="form-group">
+                        <label for="equipamento">Equipamento Necessário:</label>
+                        <select id="equipamento" name="equipamento" required>
+                            <option value="">Selecione...</option>
+                            <option value="barra">Barra</option>
+                            <option value="halter">Halteres</option>
+                            <option value="maquina">Máquina</option>
+                            <option value="polia">Polia / Cabo</option>
+                            <option value="peso-corporal">Peso Corporal</option>
+                        </select>
+                    </div>
+
+                    <!-- Número: Carga Estimada / Recorde -->
+                    <div class="form-group">
+                        <label for="carga-inicial">Carga Inicial / PR (kg):</label>
+                        <input type="number" id="carga-inicial" name="carga_inicial" min="0" max="500" step="0.5" placeholder="0.0">
+                    </div>
+
+                    <!-- Radio Buttons: Classificação -->
+                    <fieldset class="form-group-fieldset">
+                        <legend>Tipo de Movimento:</legend>
+                        <label for="tipo-composto">
+                            <input type="radio" id="tipo-composto" name="tipo_exercicio" value="composto" checked>
+                            Composto (Multiarticular)
+                        </label>
+                        <label for="tipo-isolador">
+                            <input type="radio" id="tipo-isolador" name="tipo_exercicio" value="isolador">
+                            Isolador (Monoarticular)
+                        </label>
+                    </fieldset>
+
+                    <!-- Textarea: Instruções -->
+                    <div class="form-group">
+                        <label for="instrucoes">Instruções de Execução:</label>
+                        <textarea id="instrucoes" name="instrucoes" rows="3" placeholder="Descreva brevemente os passos para a execução correta..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-success">💾 Salvar Exercício</button>
+                </form>
+            </section>
+
+            <!-- Barra de Filtros e Pesquisa -->
+            <section class="filter-bar">
+                <label for="busca" class="sr-only">Buscar exercício</label>
+                <input type="search" id="busca" name="busca" placeholder="🔍 Buscar exercício...">
+                
+                <label for="grupo" class="sr-only">Grupo muscular</label>
+                <select id="grupo" name="grupo">
+                    <option value="todos">Todos os Grupos Musculares</option>
+                    <option value="peitoral">Peitoral</option>
+                    <option value="pernas">Pernas</option>
+                    <option value="costas">Costas</option>
+                    <option value="ombros">Ombros</option>
+                    <option value="biceps">Bíceps</option>
+                    <option value="triceps">Tríceps</option>
+                </select>
+            </section>
 
             <!-- Barra de Filtros e Pesquisa -->
             <section class="filter-bar">
