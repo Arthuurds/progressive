@@ -618,6 +618,7 @@ button,
 .bar {
     position: relative;
     flex: 1;
+    height: calc(var(--valor) * 1%);
     min-height: 10px;
     background: linear-gradient(to top, var(--accent-dim), var(--accent));
     border-radius: 8px;
@@ -629,7 +630,7 @@ button,
 }
 
 /* Dias sem treino viram uma "célula vazia" cinza */
-.bar[style*="height: 0%"] {
+.bar[style="--valor: 0"] {
     background: var(--surface-2);
 }
 
@@ -1387,6 +1388,57 @@ button,
     height: 14px;
     background: var(--nivel);
     border-radius: 4px;
+}
+
+/* Controle segmentado ("Semana / 30 dias / 90 dias") */
+.segmented {
+    display: inline-flex;
+    gap: 4px;
+    margin: 0.25rem 0 1rem;
+    padding: 4px;
+    background: var(--surface-2);
+    border-radius: var(--radius-pill);
+}
+
+.segmented label {
+    margin: 0;
+    padding: 0.45rem 1rem;
+    color: var(--text-muted);
+    border-radius: var(--radius-pill);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition);
+}
+
+.segmented label:hover {
+    color: var(--text);
+}
+
+#periodo-semana:checked ~ .segmented [for="periodo-semana"],
+#periodo-30d:checked ~ .segmented [for="periodo-30d"],
+#periodo-90d:checked ~ .segmented [for="periodo-90d"] {
+    background: var(--bg);
+    color: var(--text);
+}
+
+#periodo-semana:focus-visible ~ .segmented [for="periodo-semana"],
+#periodo-30d:focus-visible ~ .segmented [for="periodo-30d"],
+#periodo-90d:focus-visible ~ .segmented [for="periodo-90d"] {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Só o gráfico do período escolhido aparece */
+.chart-30d,
+.chart-90d,
+#periodo-30d:checked ~ .chart-container .chart-semana,
+#periodo-90d:checked ~ .chart-container .chart-semana {
+    display: none;
+}
+
+#periodo-30d:checked ~ .chart-container .chart-30d,
+#periodo-90d:checked ~ .chart-container .chart-90d {
+    display: flex;
 }
 
 /* Formulário destacado ao chegar pelo link "Cadastrar Exercício" (:target) */
