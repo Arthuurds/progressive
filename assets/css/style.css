@@ -1,10 +1,4 @@
-/* =========================================================
-   PROGRESSIVE — Folha de estilos
-   Visual inspirado na tela "Stats" do openGym:
-   fundo escuro, cards arredondados, números grandes e
-   verde como cor de destaque.
-   ========================================================= */
-
+ 
 /* ---------- 1. Variáveis (tokens de design) ---------- */
 :root {
     color-scheme: dark;
@@ -345,14 +339,14 @@ button,
     font-size: 1.3rem;
 }
 
-.brand h1 {
+.brand-name {
     margin: 0;
     font-size: 1.25rem;
     font-weight: 800;
     letter-spacing: 0.04em;
 }
 
-.brand h1 span {
+.brand-name span {
     display: block;
     color: var(--text-muted);
     font-size: 0.7rem;
@@ -463,7 +457,7 @@ button,
     margin-bottom: 1.75rem;
 }
 
-.page-title-bar h2 {
+.page-title-bar h1 {
     margin: 0;
     font-size: clamp(1.8rem, 4vw, 2.6rem);
     font-weight: 800;
@@ -593,7 +587,7 @@ button,
 
 .widget-chart h2,
 .widget-records h2,
-.chart-card h3,
+.chart-card h2,
 .history-table-card h2 {
     color: var(--text-muted);
     font-size: 1rem;
@@ -677,10 +671,10 @@ button,
     gap: var(--gap);
 }
 
-.routines-grid > h3,
-.library-grid > h3,
-.add-exercise-section > h3,
-.calc-form-card > h3 {
+.routines-grid > h2,
+.library-grid > h2,
+.add-exercise-section > h2,
+.calc-form-card > h2 {
     grid-column: 1 / -1;
     margin-bottom: 0.25rem;
     color: var(--text-muted);
@@ -712,7 +706,7 @@ button,
     font-size: 0.85rem;
 }
 
-.routine-card h4 {
+.routine-card h3 {
     margin: 0;
     font-size: 1.2rem;
 }
@@ -797,7 +791,7 @@ button,
     align-self: flex-start;
 }
 
-.library-card h4 {
+.library-card h3 {
     margin: 0.25rem 0 0;
     font-size: 1.15rem;
 }
@@ -928,7 +922,7 @@ button,
     margin-bottom: 1.5rem;
 }
 
-.details-card > h2 {
+.details-card > h1 {
     font-size: clamp(1.6rem, 4vw, 2.2rem);
     font-weight: 800;
 }
@@ -965,7 +959,7 @@ button,
     border-radius: var(--radius-md);
 }
 
-.tips-box h3 {
+.tips-box h2 {
     font-size: 1.05rem;
 }
 
@@ -1279,7 +1273,31 @@ button,
     font-size: 0.9rem;
 }
 
-/* ---------- 15. Responsivo ---------- */
+/* ---------- 15. Componentes inspirados no openGym ---------- */
+
+/* Formulário destacado ao chegar pelo link "Cadastrar Exercício" (:target) */
+.add-exercise-section {
+    scroll-margin-top: 90px;
+}
+
+.add-exercise-section:target {
+    animation: destaque 1.6s ease-out;
+}
+
+@keyframes destaque {
+    0% { box-shadow: 0 0 0 4px var(--accent); }
+    100% { box-shadow: 0 0 0 4px transparent; }
+}
+
+/* Legenda da tabela de histórico */
+.data-table caption {
+    padding-bottom: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+/* ---------- 16. Responsivo ---------- */
 @media (max-width: 1024px) {
     .metrics-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1353,7 +1371,7 @@ button,
         padding: 0.75rem 16px;
     }
 
-    .brand h1 span,
+    .brand-name span,
     .user-name,
     .user-meta {
         display: none;
