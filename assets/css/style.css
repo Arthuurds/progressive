@@ -1278,3 +1278,173 @@ button,
     text-align: center;
     font-size: 0.9rem;
 }
+
+/* ---------- 15. Responsivo ---------- */
+@media (max-width: 1024px) {
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-widgets,
+    .calculator-grid,
+    .details-content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Celular: sidebar vira barra de navegação inferior, como no openGym */
+@media (max-width: 768px) {
+    .layout {
+        display: block;
+        min-height: 0;
+    }
+
+    .main-content {
+        padding: 1.25rem 16px calc(var(--bottom-nav-height) + 2rem);
+    }
+
+    .sidebar {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 30;
+        height: var(--bottom-nav-height);
+        padding: 0 0.25rem;
+        background: rgba(18, 18, 20, 0.95);
+        backdrop-filter: blur(12px);
+        border-right: 0;
+        border-top: 1px solid var(--border);
+    }
+
+    .sidebar ul {
+        flex-direction: row;
+        justify-content: space-around;
+        height: 100%;
+        gap: 0;
+    }
+
+    .sidebar li {
+        flex: 1;
+    }
+
+    .sidebar a {
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.15rem;
+        height: 100%;
+        padding: 0.25rem;
+        font-size: 0.68rem;
+        line-height: 1.2;
+        text-align: center;
+        border-radius: 0;
+    }
+
+    .sidebar a:hover {
+        background: transparent;
+    }
+
+    .sidebar .active a {
+        background: transparent;
+    }
+
+    .topbar {
+        padding: 0.75rem 16px;
+    }
+
+    .brand h1 span,
+    .user-name,
+    .user-meta {
+        display: none;
+    }
+
+    .metric-card {
+        padding: 1.1rem;
+    }
+
+    .metric-card h3 {
+        font-size: 0.75rem;
+    }
+
+    .next-workout-banner .btn-start {
+        width: 100%;
+    }
+
+    .exercise-form {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-bar label:not(.sr-only) {
+        margin: 0;
+    }
+
+    .timer-bar,
+    .session-topbar {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .timer-controls {
+        width: 100%;
+    }
+
+    .timer-controls button {
+        flex: 1;
+    }
+
+    .session-container {
+        padding: 1rem 16px;
+    }
+
+    .metric-card,
+    .next-workout-banner,
+    .widget-chart,
+    .widget-records,
+    .routine-card,
+    .library-card,
+    .add-exercise-section,
+    .chart-card,
+    .calc-form-card,
+    .calc-result-card,
+    .details-card,
+    .history-table-card,
+    .session-exercise-card,
+    .auth-container {
+        padding: 1.1rem;
+    }
+
+    /* Tabelas largas rolam dentro do card, não na página */
+    .history-table-card {
+        overflow-x: auto;
+    }
+
+    .sets-table th,
+    .sets-table td {
+        padding: 0.6rem 0.35rem;
+    }
+
+    .sets-table input[type="number"] {
+        width: 4rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .percentages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bar-chart-placeholder {
+        gap: 6px;
+    }
+}
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
