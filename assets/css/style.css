@@ -1469,6 +1469,78 @@ button,
     display: flex;
 }
 
+/* Indicador de progressão nos cards da biblioteca */
+.trend {
+    align-self: flex-start;
+    padding: 0.2rem 0.7rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.library-card .trend-up {
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.library-card .trend-flat {
+    background: var(--surface-2);
+    color: var(--text-muted);
+}
+
+.library-card .trend-down {
+    background: rgba(255, 214, 10, 0.12);
+    color: var(--warning);
+}
+
+/* Instruções expansíveis com <details> */
+.exercise-instructions {
+    margin: 0.25rem 0;
+    background: var(--surface-2);
+    border-radius: var(--radius-md);
+}
+
+.exercise-instructions summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+}
+
+.exercise-instructions summary::-webkit-details-marker {
+    display: none;
+}
+
+.exercise-instructions summary::after {
+    content: "+";
+    color: var(--accent);
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.exercise-instructions[open] summary::after {
+    content: "−";
+}
+
+.exercise-instructions ol {
+    margin: 0;
+    padding: 0 1rem 0.9rem 2.2rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.exercise-instructions li + li {
+    margin-top: 0.35rem;
+}
+
+.session-exercise-card .exercise-instructions {
+    margin-bottom: 0.75rem;
+}
+
 /* Formulário destacado ao chegar pelo link "Cadastrar Exercício" (:target) */
 .add-exercise-section {
     scroll-margin-top: 90px;
