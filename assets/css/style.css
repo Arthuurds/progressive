@@ -1242,12 +1242,18 @@ button,
 }
 
 .tab-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
     padding: 0.7rem 1rem;
     background: transparent;
     color: var(--text-muted);
-    border: 0;
     border-radius: var(--radius-pill);
+    font-size: 1rem;
     font-weight: 600;
+    text-align: center;
+    cursor: pointer;
     transition: background var(--transition), color var(--transition);
 }
 
@@ -1255,9 +1261,28 @@ button,
     color: var(--text);
 }
 
-.tab-btn.active {
+/* Aba ativa: o radio marcado define qual label fica em destaque */
+#modo-cadastro:checked ~ .auth-tabs [for="modo-cadastro"],
+#modo-login:checked ~ .auth-tabs [for="modo-login"] {
     background: var(--bg);
     color: var(--text);
+}
+
+/* Foco do teclado nos radios escondidos aparece na aba correspondente */
+#modo-cadastro:focus-visible ~ .auth-tabs [for="modo-cadastro"],
+#modo-login:focus-visible ~ .auth-tabs [for="modo-login"] {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Só um formulário aparece por vez */
+.form-login,
+#modo-login:checked ~ .form-cadastro {
+    display: none;
+}
+
+#modo-login:checked ~ .form-login {
+    display: block;
 }
 
 .btn-submit {

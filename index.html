@@ -18,14 +18,18 @@
             <p>EVOLUÇÃO & CARGAS DE TREINO</p>
         </header>
 
-        <!-- Alternador de Modos -->
-        <nav class="auth-tabs">
-            <button type="button" class="tab-btn active">👤+ Criar Conta</button>
-            <button type="button" class="tab-btn">🚪 Já tenho Conta</button>
-        </nav>
+        <!-- Alternador de Modos: os radios controlam, via CSS (:checked), qual formulário aparece -->
+        <input type="radio" name="modo-acesso" id="modo-cadastro" class="sr-only" checked>
+        <input type="radio" name="modo-acesso" id="modo-login" class="sr-only">
+
+        <div class="auth-tabs">
+            <label for="modo-cadastro" class="tab-btn">👤+ Criar Conta</label>
+            <label for="modo-login" class="tab-btn">🚪 Já tenho Conta</label>
+        </div>
 
         <!-- Formulario de Registo -->
-        <form action="pages/dashboard.html" method="GET" class="auth-form">
+        <form action="pages/dashboard.html" method="GET" class="auth-form form-cadastro">
+            <h2 class="sr-only">Criar conta</h2>
             
             <div class="form-row">
                 <div class="form-group">
@@ -87,6 +91,27 @@
                 <a href="pages/dashboard.html">🧪 Entrar direto com dados de demonstração (Testar sem cadastro)</a>
             </div>
 
+        </form>
+
+        <!-- Formulario de Login -->
+        <form action="pages/dashboard.html" method="GET" class="auth-form form-login">
+            <h2 class="sr-only">Entrar na conta</h2>
+
+            <div class="form-group">
+                <label for="login-email">E-MAIL</label>
+                <input type="email" id="login-email" name="email" placeholder="rodrigo@email.com" autocomplete="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="login-senha">SENHA</label>
+                <input type="password" id="login-senha" name="senha" placeholder="••••••••" autocomplete="current-password" required>
+            </div>
+
+            <button type="submit" class="btn-submit">Entrar →</button>
+
+            <div class="demo-access">
+                <a href="pages/dashboard.html">🧪 Entrar direto com dados de demonstração</a>
+            </div>
         </form>
     </main>
 
