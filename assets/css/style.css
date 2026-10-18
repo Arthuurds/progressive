@@ -1033,6 +1033,171 @@ button,
     border-top: 1px solid var(--border);
 }
 
+/* ---------- 13. Sessão em andamento ---------- */
+.session-topbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap);
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.session-topbar h1 {
+    margin: 0.4rem 0 0;
+    font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+    font-weight: 800;
+}
+
+.badge-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: var(--radius-pill);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+/* Ponto "ao vivo" pulsando */
+.badge-live::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.7); }
+}
+
+/* Cronómetro fixo no topo durante o treino */
+.timer-bar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap);
+    padding: 1rem 1.5rem;
+    background: rgba(28, 28, 30, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.timer-display {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.timer-display span {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.timer-display time {
+    font-size: 2.25rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Botões do cronómetro como controle segmentado */
+.timer-controls {
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    background: var(--surface-2);
+    border-radius: var(--radius-pill);
+}
+
+.timer-controls button {
+    padding: 0.55rem 1.1rem;
+    background: transparent;
+    color: var(--text);
+    border: 0;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    transition: background var(--transition);
+}
+
+.timer-controls button:hover {
+    background: var(--surface-3);
+}
+
+.timer-controls .btn-stop {
+    color: var(--danger);
+}
+
+.session-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.exercise-card-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.exercise-card-head h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.target {
+    padding: 0.25rem 0.75rem;
+    background: var(--surface-2);
+    color: var(--text-muted);
+    border-radius: var(--radius-pill);
+    font-size: 0.85rem;
+}
+
+.sets-table td:first-child {
+    color: var(--text-muted);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.sets-table td:last-child,
+.sets-table th:last-child {
+    text-align: center;
+}
+
+.sets-table input[type="number"] {
+    width: 5rem;
+    padding: 0.5rem 0.6rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Série concluída fica destacada em verde */
+.sets-table tbody tr:has(input:checked) {
+    background: var(--accent-soft);
+}
+
+.sets-table tbody tr:has(input:checked) td:first-child {
+    color: var(--accent);
+}
+
 /* ---------- 14. Login / cadastro (index) ---------- */
 .auth-container {
     width: min(640px, calc(100% - 32px));
