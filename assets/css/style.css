@@ -1390,6 +1390,34 @@ button,
     border-radius: 4px;
 }
 
+/* Medidor da meta de peso */
+.metric-meter {
+    width: 100%;
+    height: 8px;
+    margin-top: 0.6rem;
+    background: var(--surface-2);
+    border: 0;
+    border-radius: var(--radius-pill);
+    appearance: none;
+}
+
+.metric-meter::-webkit-meter-bar {
+    background: var(--surface-2);
+    border: 0;
+    border-radius: var(--radius-pill);
+}
+
+.metric-meter::-webkit-meter-optimum-value,
+.metric-meter::-webkit-meter-suboptimum-value {
+    background: var(--accent);
+    border-radius: var(--radius-pill);
+}
+
+.metric-meter::-moz-meter-bar {
+    background: var(--accent);
+    border-radius: var(--radius-pill);
+}
+
 /* Controle segmentado ("Semana / 30 dias / 90 dias") */
 .segmented {
     display: inline-flex;
