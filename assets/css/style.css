@@ -496,6 +496,162 @@ button,
     padding: 1.5rem;
 }
 
+/* ---------- 8. Treinos (fichas) ---------- */
+.routines-grid,
+.library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--gap);
+}
+
+.routines-grid > h3,
+.library-grid > h3,
+.add-exercise-section > h3,
+.calc-form-card > h3 {
+    grid-column: 1 / -1;
+    margin-bottom: 0.25rem;
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.routine-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border: 1px solid transparent;
+    transition: border-color var(--transition), transform var(--transition);
+}
+
+.routine-card:hover {
+    border-color: var(--accent-dim);
+    transform: translateY(-2px);
+}
+
+.routine-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.count {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.routine-card h4 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.exercise-preview-list {
+    flex: 1;
+}
+
+.exercise-preview-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.92rem;
+}
+
+.exercise-preview-list li:last-child {
+    border-bottom: 0;
+}
+
+.exercise-preview-list strong {
+    color: var(--text-muted);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.btn-start-routine {
+    width: 100%;
+    margin-top: 0.25rem;
+}
+
+/* ---------- 9. Biblioteca ---------- */
+.add-exercise-section {
+    margin-bottom: 1.5rem;
+}
+
+.exercise-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 var(--gap);
+}
+
+.exercise-form .form-group:has(textarea),
+.exercise-form .form-group-fieldset,
+.exercise-form .btn-success {
+    grid-column: 1 / -1;
+}
+
+.exercise-form .btn-success {
+    justify-self: start;
+}
+
+/* Barra de filtros em pílula, como os seletores do openGym */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+}
+
+.filter-bar input,
+.filter-bar select {
+    width: auto;
+    flex: 1 1 200px;
+    border-radius: var(--radius-pill);
+}
+
+.filter-bar label:not(.sr-only) {
+    margin: 0 0 0 0.5rem;
+}
+
+.library-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.library-card .group-tag {
+    align-self: flex-start;
+}
+
+.library-card h4 {
+    margin: 0.25rem 0 0;
+    font-size: 1.15rem;
+}
+
+.library-card p {
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.library-card p strong {
+    color: var(--accent);
+    font-size: 1.15rem;
+}
+
+.card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+}
+
+.card-actions .btn-link {
+    margin-right: auto;
+}
+
 /* ---------- 14. Login / cadastro (index) ---------- */
 .auth-container {
     width: min(640px, calc(100% - 32px));
