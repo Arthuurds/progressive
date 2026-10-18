@@ -1,33 +1,108 @@
- 
-/* ---------- 1. Variáveis (tokens de design) ---------- */
+/* Fontes da marca: Outfit (títulos e números) e Inter (interface e texto) */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap");
+
+/* ---------- 1. Variáveis (tokens de design) ----------
+   Tokens da marca Progressive. Todas as combinações de texto
+   e fundo usadas passam no contraste WCAG AA. */
 :root {
     color-scheme: dark;
 
-    /* Cores */
-    --bg: #000000;
-    --surface: #1c1c1e;
-    --surface-2: #2c2c2e;
-    --surface-3: #3a3a3c;
-    --border: #2f2f33;
-    --text: #f5f5f7;
-    --text-muted: #a1a1a6;
-    --accent: #30d158;
-    --accent-strong: #28b84c;
-    --accent-soft: rgba(48, 209, 88, 0.16);
-    --accent-dim: #1f6f35;
-    --danger: #ff453a;
-    --danger-soft: rgba(255, 69, 58, 0.14);
-    --warning: #ffd60a;
+    /* Marca */
+    --brand-primary: #30d158;          /* Verde Progressive: ação principal e dados positivos */
+    --brand-primary-strong: #28b84c;   /* hover e segunda barra do símbolo */
+    --brand-primary-dim: #1f6f35;      /* primeira barra do símbolo, níveis baixos */
+    --brand-primary-soft: rgba(48, 209, 88, 0.16);
+    --brand-accent: #409cff;           /* Azul dado: informação e gráficos secundários */
+    --brand-on-primary: #04140a;       /* texto sobre o verde (9,36:1) */
+
+    /* Neutros (dark mode nativo) */
+    --neutral-0: #000000;
+    --neutral-50: #1c1c1e;
+    --neutral-100: #2c2c2e;
+    --neutral-200: #3a3a3c;
+    --neutral-300: #2f2f33;
+    --neutral-500: #8e8e93;
+    --neutral-600: #a1a1a6;
+    --neutral-900: #f5f5f7;
+
+    /* Cores funcionais */
+    --color-success: #30d158;          /* carga superada */
+    --color-success-soft: rgba(48, 209, 88, 0.16);
+    --color-error: #ff453a;
+    --color-error-soft: rgba(255, 69, 58, 0.14);
+    --color-warning: #ffd60a;
+    --color-warning-soft: rgba(255, 214, 10, 0.12);
+    --color-info: #409cff;
+    --color-info-soft: rgba(64, 156, 255, 0.14);
+
+    /* Apelidos semânticos usados pelo resto da folha de estilos */
+    --bg: var(--neutral-0);
+    --surface: var(--neutral-50);
+    --surface-2: var(--neutral-100);
+    --surface-3: var(--neutral-200);
+    --border: var(--neutral-300);
+    --text: var(--neutral-900);
+    --text-muted: var(--neutral-600);
+    --text-subtle: var(--neutral-500);
+    --accent: var(--brand-primary);
+    --accent-strong: var(--brand-primary-strong);
+    --accent-soft: var(--brand-primary-soft);
+    --accent-dim: var(--brand-primary-dim);
+    --danger: var(--color-error);
+    --danger-soft: var(--color-error-soft);
+    --warning: var(--color-warning);
+    --info: var(--color-info);
 
     /* Tipografia */
-    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-heading: "Outfit", "Segoe UI", Roboto, Arial, sans-serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font: var(--font-body);
+
+    --fs-display: clamp(2.5rem, 6vw, 3.5rem);  /* 40–56px: números de destaque */
+    --fs-h1: clamp(1.875rem, 4vw, 2.5rem);     /* 30–40px */
+    --fs-h2: 1.5rem;                            /* 24px */
+    --fs-h3: 1.25rem;                           /* 20px */
+    --fs-h4: 1.125rem;                          /* 18px */
+    --fs-h5: 1rem;                              /* 16px */
+    --fs-h6: 0.875rem;                          /* 14px */
+    --fs-body: 1rem;                            /* 16px */
+    --fs-small: 0.875rem;                       /* 14px */
+    --fs-caption: 0.75rem;                      /* 12px */
+    --fs-badge: 0.72rem;                        /* 11,5px, caixa alta */
+    --fs-button: 1rem;                          /* 16px */
+
+    --lh-tight: 1.1;
+    --lh-heading: 1.2;
+    --lh-snug: 1.35;
+    --lh-body: 1.5;
+
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    --fw-black: 800;
+
+    --tracking-tight: -0.01em;
+    --tracking-wide: 0.08em;
+
+    /* Sombras e brilho */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+    --shadow-glow: 0 0 0 6px var(--brand-primary-soft), 0 10px 30px rgba(48, 209, 88, 0.25);
+    --shadow-focus: 0 0 0 3px var(--brand-primary);
 
     /* Formas e espaçamentos */
     --radius-lg: 22px;
     --radius-md: 14px;
     --radius-sm: 10px;
     --radius-pill: 999px;
-    --gap: 16px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --gap: var(--space-4);
     --sidebar-width: 240px;
     --bottom-nav-height: 72px;
     --transition: 0.2s ease;
@@ -49,17 +124,26 @@ body {
     min-height: 100vh;
     background: var(--bg);
     color: var(--text);
-    font-family: var(--font);
-    font-size: 1rem;
-    line-height: 1.5;
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
     -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
     margin: 0 0 0.5rem;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+    font-family: var(--font-heading);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--tracking-tight);
 }
+
+h1 { font-size: var(--fs-h1); font-weight: var(--fw-black); line-height: var(--lh-tight); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+h5 { font-size: var(--fs-h5); }
+h6 { font-size: var(--fs-h6); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
 
 p {
     margin: 0 0 0.75rem;
@@ -141,7 +225,7 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-    color: #7c7c80;
+    color: var(--text-subtle);
 }
 
 input:hover,
@@ -328,30 +412,30 @@ button,
     min-width: 0;
 }
 
+/* Símbolo da marca (assets/img/brand/symbol.svg) */
 .logo {
-    display: grid;
-    place-items: center;
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
     flex-shrink: 0;
-    background: var(--accent-soft);
-    border-radius: 50%;
-    font-size: 1.3rem;
 }
 
 .brand-name {
     margin: 0;
-    font-size: 1.25rem;
-    font-weight: 800;
-    letter-spacing: 0.04em;
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: var(--fw-black);
+    line-height: var(--lh-tight);
+    letter-spacing: 0.06em;
 }
 
 .brand-name span {
     display: block;
+    margin-top: 2px;
     color: var(--text-muted);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.14em;
 }
 
 .user-info {
@@ -520,6 +604,7 @@ button,
 
 .metric-value {
     margin: 0.25rem 0 0;
+    font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: 800;
     line-height: 1.1;
@@ -575,7 +660,7 @@ button,
 .btn-start {
     padding: 1rem 1.75rem;
     font-size: 1.05rem;
-    box-shadow: 0 0 0 6px var(--accent-soft), 0 10px 30px rgba(48, 209, 88, 0.25);
+    box-shadow: var(--shadow-glow);
 }
 
 /* Gráfico + recordes */
@@ -885,7 +970,8 @@ button,
 .result-value {
     margin: 0.75rem 0 0.25rem;
     color: var(--accent);
-    font-size: clamp(2.6rem, 6vw, 3.75rem);
+    font-family: var(--font-heading);
+    font-size: var(--fs-display);
     font-weight: 800;
     font-variant-numeric: tabular-nums;
 }
@@ -1206,15 +1292,13 @@ button,
     text-align: center;
 }
 
+/* Ícone do app (assets/img/brand/app-icon-512.svg) */
 .logo-icon {
-    display: grid;
-    place-items: center;
-    width: 72px;
-    height: 72px;
+    width: 80px;
+    height: 80px;
     margin: 0 auto 1rem;
-    background: var(--accent-soft);
-    border-radius: 50%;
-    font-size: 2.2rem;
+    border-radius: 18px;
+    box-shadow: var(--shadow-md);
 }
 
 .auth-header h1 {
@@ -1326,7 +1410,7 @@ button,
 
 .widget-heatmap h2 span,
 .widget-muscles h2 span {
-    color: #6e6e73;
+    color: var(--text-subtle);
     font-weight: 400;
 }
 

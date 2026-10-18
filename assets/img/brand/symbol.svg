@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t">
+  <title id="t">Progressive</title>
+  <!-- Três séries com carga crescente; a terceira é a letra P -->
+  <rect x="4" y="38" width="10" height="20" rx="2.5" fill="#1F6F35"/>
+  <rect x="18" y="26" width="10" height="32" rx="2.5" fill="#28B84C"/>
+  <path fill="#30D158" fill-rule="evenodd" d="M34.5 6H46a16.5 16.5 0 0 1 0 33h-4v16.5a2.5 2.5 0 0 1-2.5 2.5h-5a2.5 2.5 0 0 1-2.5-2.5v-47A2.5 2.5 0 0 1 34.5 6ZM42 16h4a6.5 6.5 0 0 1 0 13h-4Z"/>
+</svg>

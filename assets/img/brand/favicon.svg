@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Favicon 32x32: fundo preto arredondado e símbolo redesenhado no grid de 32 para ler bem em tamanho pequeno -->
+  <rect width="32" height="32" rx="7" fill="#000"/>
+  <rect x="3" y="18" width="5" height="10" rx="1.25" fill="#1F6F35"/>
+  <rect x="10" y="12" width="5" height="16" rx="1.25" fill="#28B84C"/>
+  <path fill="#30D158" fill-rule="evenodd" d="M18.5 4h5a6.5 6.5 0 0 1 0 13H22v9.5a1.5 1.5 0 0 1-1.5 1.5h-2a1.5 1.5 0 0 1-1.5-1.5v-21A1.5 1.5 0 0 1 18.5 4ZM22 8h1.5a2.5 2.5 0 0 1 0 5H22Z"/>
+</svg>
