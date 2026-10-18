@@ -825,6 +825,214 @@ button,
     margin-right: auto;
 }
 
+/* ---------- 10. Evolução ---------- */
+.chart-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.chart-header label {
+    margin: 0;
+}
+
+.chart-header select {
+    width: auto;
+    border-radius: var(--radius-pill);
+}
+
+.line-chart-wrapper {
+    margin: 0;
+}
+
+.line-chart-wrapper svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* O CSS tem prioridade sobre os atributos do SVG */
+.line-chart-wrapper line {
+    stroke: var(--surface-2);
+}
+
+.line-chart-wrapper polyline {
+    stroke: var(--accent);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.line-chart-wrapper circle {
+    fill: var(--bg);
+    stroke: var(--accent);
+    stroke-width: 3;
+}
+
+/* ---------- 11. Calculadora ---------- */
+.calculator-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+    align-items: start;
+}
+
+.calc-form-card .btn-primary {
+    width: 100%;
+}
+
+.calc-result-card {
+    text-align: center;
+    background: linear-gradient(160deg, #12351d 0%, var(--surface) 55%);
+}
+
+.result-value {
+    margin: 0.75rem 0 0.25rem;
+    color: var(--accent);
+    font-size: clamp(2.6rem, 6vw, 3.75rem);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+.result-sub {
+    color: var(--text-muted);
+}
+
+.percentages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+}
+
+.percentages-grid div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.9rem 0.5rem;
+    background: var(--surface-2);
+    border-radius: var(--radius-md);
+}
+
+.percentages-grid span {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.percentages-grid strong {
+    font-size: 1.25rem;
+}
+
+/* ---------- 12. Detalhes do exercício ---------- */
+.details-card,
+.history-table-card {
+    margin-bottom: 1.5rem;
+}
+
+.details-card > h2 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 800;
+}
+
+.details-card > p {
+    color: var(--text-muted);
+}
+
+.details-card > p strong {
+    color: var(--text);
+}
+
+.details-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+    margin-top: 1rem;
+}
+
+.exercise-illustration {
+    margin: 0;
+}
+
+.exercise-illustration img {
+    width: 100%;
+    background: #fff;
+    border-radius: var(--radius-md);
+}
+
+.tips-box {
+    padding: 1.25rem;
+    background: var(--surface-2);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius-md);
+}
+
+.tips-box h3 {
+    font-size: 1.05rem;
+}
+
+.tips-box li {
+    position: relative;
+    padding: 0.4rem 0 0.4rem 1.5rem;
+}
+
+.tips-box li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 800;
+}
+
+/* Tabelas */
+.data-table,
+.sets-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+}
+
+.data-table th,
+.sets-table th {
+    padding: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-align: left;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+}
+
+.data-table td,
+.sets-table td {
+    padding: 0.85rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.data-table tbody tr:last-child td,
+.sets-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.data-table tbody tr:hover {
+    background: var(--surface-2);
+}
+
+.data-table td strong {
+    color: var(--accent);
+}
+
+.btn-back {
+    flex-shrink: 0;
+}
+
+.footer {
+    padding: 2rem 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
 /* ---------- 14. Login / cadastro (index) ---------- */
 .auth-container {
     width: min(640px, calc(100% - 32px));
