@@ -1300,6 +1300,95 @@ button,
 
 /* ---------- 15. Componentes inspirados no openGym ---------- */
 
+/* Escala de intensidade compartilhada (heatmap, mapa muscular, legenda) */
+.n0 { --nivel: var(--surface-2); }
+.n1 { --nivel: #1d4a2a; }
+.n2 { --nivel: var(--accent-dim); }
+.n3 { --nivel: var(--accent-strong); }
+.n4 { --nivel: var(--accent); }
+
+.widget-heatmap,
+.widget-muscles {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+}
+
+.widget-heatmap h2,
+.widget-muscles h2 {
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.widget-heatmap h2 span,
+.widget-muscles h2 span {
+    color: #6e6e73;
+    font-weight: 400;
+}
+
+/* Mapa de atividade: 7 linhas (seg a dom) e uma coluna por semana */
+.heatmap-scroll {
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+}
+
+.heatmap,
+.heatmap-meses,
+.bar-chart-placeholder {
+    margin: 0;
+    padding-inline-start: 0;
+    list-style: none;
+}
+
+.heatmap,
+.heatmap-meses {
+    display: grid;
+    grid-template-columns: repeat(26, minmax(14px, 1fr));
+    gap: 4px;
+    min-width: 470px;
+}
+
+.heatmap {
+    grid-template-rows: repeat(7, auto);
+    grid-auto-flow: column;
+}
+
+.heatmap-meses {
+    margin-bottom: 0.4rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+.heatmap li {
+    aspect-ratio: 1;
+    background: var(--nivel);
+    border-radius: 4px;
+}
+
+.heatmap .hoje {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
+.heatmap-legenda {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    margin: 0.75rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.heatmap-legenda span {
+    width: 14px;
+    height: 14px;
+    background: var(--nivel);
+    border-radius: 4px;
+}
+
 /* Formulário destacado ao chegar pelo link "Cadastrar Exercício" (:target) */
 .add-exercise-section {
     scroll-margin-top: 90px;
