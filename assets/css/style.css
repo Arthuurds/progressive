@@ -122,6 +122,91 @@ strong {
     border: 0;
 }
 
+/* ---------- 3. Formulários ---------- */
+label,
+legend {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    background: var(--surface-2);
+    color: var(--text);
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    font: inherit;
+    transition: border-color var(--transition), background var(--transition);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #7c7c80;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    background: var(--surface-3);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    padding: 0;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0 var(--gap);
+}
+
+.form-group-fieldset {
+    margin: 0 0 1rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.form-group-fieldset legend {
+    padding: 0 0.4rem;
+}
+
+.form-group-fieldset label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0.4rem 0;
+    color: var(--text);
+    font-weight: 400;
+    cursor: pointer;
+}
+
 /* ---------- 4. Botões ---------- */
 button,
 .btn-primary,
@@ -409,4 +494,85 @@ button,
     background: var(--surface);
     border-radius: var(--radius-lg);
     padding: 1.5rem;
+}
+
+/* ---------- 14. Login / cadastro (index) ---------- */
+.auth-container {
+    width: min(640px, calc(100% - 32px));
+    margin: 3rem auto;
+    padding: 2rem;
+}
+
+.auth-header {
+    margin-bottom: 1.75rem;
+    text-align: center;
+}
+
+.logo-icon {
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1rem;
+    background: var(--accent-soft);
+    border-radius: 50%;
+    font-size: 2.2rem;
+}
+
+.auth-header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+}
+
+.auth-header p {
+    margin: 0.25rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+}
+
+/* Abas em controle segmentado ("Week / 30d / 90d" do openGym) */
+.auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 1.75rem;
+    padding: 4px;
+    background: var(--surface-2);
+    border-radius: var(--radius-pill);
+}
+
+.tab-btn {
+    padding: 0.7rem 1rem;
+    background: transparent;
+    color: var(--text-muted);
+    border: 0;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    transition: background var(--transition), color var(--transition);
+}
+
+.tab-btn:hover {
+    color: var(--text);
+}
+
+.tab-btn.active {
+    background: var(--bg);
+    color: var(--text);
+}
+
+.btn-submit {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    font-size: 1.05rem;
+}
+
+.demo-access {
+    margin-top: 1.25rem;
+    text-align: center;
+    font-size: 0.9rem;
 }
