@@ -496,6 +496,179 @@ button,
     padding: 1.5rem;
 }
 
+/* ---------- 7. Dashboard (estilo "Stats") ---------- */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap);
+    margin-bottom: 1.5rem;
+}
+
+.metric-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    transition: transform var(--transition), background var(--transition);
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    background: #232326;
+}
+
+.metric-card h3 {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+.metric-value {
+    margin: 0.25rem 0 0;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+}
+
+.metric-sub {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Variação positiva em verde, como o "-1 kg" do openGym */
+.metric-card:first-of-type .metric-sub {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Banner do treino do dia */
+.next-workout-banner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #12351d 0%, var(--surface) 60%);
+    border: 1px solid var(--accent-dim);
+}
+
+.workout-info h2 {
+    margin: 0.6rem 0 0.25rem;
+    font-size: 1.4rem;
+}
+
+.workout-info p {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.badge,
+.group-tag,
+.formula-tag {
+    display: inline-block;
+    padding: 0.25rem 0.7rem;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: var(--radius-pill);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.btn-start {
+    padding: 1rem 1.75rem;
+    font-size: 1.05rem;
+    box-shadow: 0 0 0 6px var(--accent-soft), 0 10px 30px rgba(48, 209, 88, 0.25);
+}
+
+/* Gráfico + recordes */
+.dashboard-widgets {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--gap);
+}
+
+.widget-chart h2,
+.widget-records h2,
+.chart-card h3,
+.history-table-card h2 {
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.chart-container {
+    margin: 1rem 0 0;
+}
+
+.chart-container figcaption,
+.line-chart-wrapper figcaption,
+.exercise-illustration figcaption {
+    margin-top: 1rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Barras verdes com cantos arredondados, como as células do heatmap */
+.bar-chart-placeholder {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    height: 220px;
+    padding-bottom: 1.75rem;
+}
+
+.bar {
+    position: relative;
+    flex: 1;
+    min-height: 10px;
+    background: linear-gradient(to top, var(--accent-dim), var(--accent));
+    border-radius: 8px;
+    transition: filter var(--transition), transform var(--transition);
+}
+
+.bar:hover {
+    filter: brightness(1.2);
+}
+
+/* Dias sem treino viram uma "célula vazia" cinza */
+.bar[style*="height: 0%"] {
+    background: var(--surface-2);
+}
+
+.bar span {
+    position: absolute;
+    bottom: -1.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-muted);
+    font-size: 0.78rem;
+}
+
+/* Lista de recordes pessoais */
+.pr-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.pr-list li:last-child {
+    border-bottom: 0;
+}
+
+.pr-list strong {
+    color: var(--accent);
+    font-size: 1.1rem;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
 /* ---------- 8. Treinos (fichas) ---------- */
 .routines-grid,
 .library-grid {
