@@ -29,6 +29,8 @@
     --color-success-soft: rgba(48, 209, 88, 0.16);
     --color-error: #ff453a;
     --color-error-soft: rgba(255, 69, 58, 0.14);
+    --color-error-text: #ff6961;       /* texto vermelho: 5,16:1 no fundo translúcido, 4,94:1 em surface-2 */
+    --color-on-error: #1a0503;         /* texto sobre o vermelho cheio (5,78:1) */
     --color-warning: #ffd60a;
     --color-warning-soft: rgba(255, 214, 10, 0.12);
     --color-info: #409cff;
@@ -49,6 +51,8 @@
     --accent-dim: var(--brand-primary-dim);
     --danger: var(--color-error);
     --danger-soft: var(--color-error-soft);
+    --danger-text: var(--color-error-text);
+    --on-danger: var(--color-on-error);
     --warning: var(--color-warning);
     --info: var(--color-info);
 
@@ -369,7 +373,7 @@ button,
     gap: 0.4rem;
     padding: 0.6rem 1rem;
     background: var(--danger-soft);
-    color: var(--danger);
+    color: var(--danger-text);
     border: 0;
     border-radius: var(--radius-pill);
     font-weight: 600;
@@ -380,7 +384,7 @@ button,
 
 .btn-danger:hover {
     background: var(--danger);
-    color: #fff;
+    color: var(--on-danger);
     text-decoration: none;
 }
 
@@ -1239,7 +1243,7 @@ button,
 }
 
 .timer-controls .btn-stop {
-    color: var(--danger);
+    color: var(--danger-text);
 }
 
 .session-container {
@@ -2135,7 +2139,7 @@ button,
 /* Validação do formulário */
 .field-error {
     margin: 0.35rem 0 0;
-    color: var(--danger);
+    color: var(--danger-text);
     font-size: var(--fs-small);
 }
 
@@ -2169,7 +2173,7 @@ textarea[aria-invalid="true"] {
 }
 
 .form-feedback--erro {
-    color: var(--danger);
+    color: var(--danger-text);
 }
 
 .form-feedback--neutro {
@@ -2304,7 +2308,7 @@ textarea[aria-invalid="true"] {
 }
 
 .api-status--erro {
-    color: var(--danger);
+    color: var(--danger-text);
 }
 
 .api-results {
