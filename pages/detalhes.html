@@ -19,70 +19,50 @@
     </header>
 
     <main class="main-content">
-        
-        <section class="details-card">
-            <h1>Supino Reto com Barra</h1>
-            <p><strong>Categoria:</strong> Peitoral | <strong>Recorde Atual:</strong> 100 kg</p>
 
-            <div class="details-content-grid">
-                
-                <!-- Demonstração Técnica Obrigatória (Figure + Figcaption) -->
-                <figure class="exercise-illustration">
-                    <img src="../assets/img/supino_reto.gif" alt="Animação demonstrando a execução correta do Supino Reto com Barra e o recrutamento do peitoral">
-                    <figcaption>Figura 1: Posição de execução - Mantenha as escápulas retraídas e os pés firmes no chão.</figcaption>
+        <!-- Conteúdo preenchido pelo JavaScript (assets/js/detalhes.js) a partir de ?id= na URL -->
+        <section class="details-card" id="detalhe-card">
+            <h1 id="detalhe-nome">Carregando exercício...</h1>
+            <p id="detalhe-meta" class="details-meta"></p>
+
+            <div class="details-content-grid" id="detalhe-grid">
+
+                <!-- Demonstração do exercício (quando houver imagem) -->
+                <figure class="exercise-illustration" id="detalhe-figura" hidden>
+                    <img id="detalhe-imagem" src="" alt="">
+                    <figcaption id="detalhe-legenda"></figcaption>
                 </figure>
 
-                <!-- Dicas Técnicas -->
+                <!-- Passos de execução -->
                 <aside class="tips-box">
-                    <h2>Recomendações Técnicas</h2>
-                    <ul>
-                        <li>Pausa de 1 segundo no peito na fase concêntrica.</li>
-                        <li>Não descolar o quadril do banco durante a subida.</li>
-                        <li>Bloqueio controlado dos cotovelos na fase final.</li>
-                    </ul>
+                    <h2>Como executar</h2>
+                    <ol id="detalhe-passos"></ol>
                 </aside>
 
             </div>
         </section>
 
-        <!-- Tabela Obrigatória de Histórico de Cargas -->
-        <section class="history-table-card">
+        <!-- Histórico de cargas registrado para o exercício -->
+        <section class="history-table-card" id="detalhe-historico-card">
             <h2>Histórico de Cargas & Progressão</h2>
             <table class="data-table">
-                <caption>Últimas sessões de Supino Reto com Barra, da mais recente para a mais antiga</caption>
+                <caption id="detalhe-caption"></caption>
                 <thead>
                     <tr>
                         <th>Data</th>
-                        <th>Carga (kg)</th>
-                        <th>Reps</th>
-                        <th>RPE</th>
+                        <th>Carga</th>
                         <th>Evolução</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td><time datetime="2026-10-04">04/10/2026</time></td>
-                        <td><strong>100.0 kg</strong></td>
-                        <td>8</td>
-                        <td>RPE 8.5</td>
-                        <td>🟢 +2.5 kg</td>
-                    </tr>
-                    <tr>
-                        <td><time datetime="2026-09-27">27/09/2026</time></td>
-                        <td>97.5 kg</td>
-                        <td>8</td>
-                        <td>RPE 8.0</td>
-                        <td>🟢 +2.5 kg</td>
-                    </tr>
-                    <tr>
-                        <td><time datetime="2026-09-20">20/09/2026</time></td>
-                        <td>95.0 kg</td>
-                        <td>8</td>
-                        <td>RPE 8.0</td>
-                        <td>⚪ Mantido</td>
-                    </tr>
-                </tbody>
+                <tbody id="detalhe-historico"></tbody>
             </table>
+        </section>
+
+        <!-- Mostrado quando o id da URL não existe na biblioteca -->
+        <section class="details-card nao-encontrado" id="detalhe-nao-encontrado" hidden>
+            <h1>Exercício não encontrado</h1>
+            <p>Ele pode ter sido excluído ou o link está incompleto.</p>
+            <a href="biblioteca.html" class="btn-primary">← Voltar à Biblioteca</a>
         </section>
 
     </main>
@@ -91,5 +71,7 @@
         <p>Progressive © 2026 — Sistema de Sobrecarga Progressiva.</p>
     </footer>
 
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/detalhes.js"></script>
 </body>
 </html>

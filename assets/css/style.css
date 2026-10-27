@@ -2141,3 +2141,28 @@ textarea[aria-invalid="true"] {
     0% { box-shadow: 0 0 0 3px var(--accent); }
     100% { box-shadow: 0 0 0 3px transparent; }
 }
+
+/* Página de detalhes preenchida pelo JS */
+.details-content-grid.sem-imagem {
+    grid-template-columns: 1fr;
+}
+
+/* Passos numerados com contador do CSS no lugar do ✓ */
+.tips-box ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: passo;
+}
+
+.tips-box ol li {
+    counter-increment: passo;
+}
+
+.tips-box ol li::before {
+    content: counter(passo) ".";
+}
+
+.nao-encontrado {
+    text-align: center;
+}
