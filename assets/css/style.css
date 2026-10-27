@@ -2068,3 +2068,26 @@ button,
         transition: none !important;
     }
 }
+
+/* ---------- 17. Interações (JavaScript) ---------- */
+
+/* Lista da biblioteca gerada pelo JS: o contêiner não cria caixa,
+   então os cards continuam sendo itens do grid da seção */
+.library-list {
+    display: contents;
+}
+
+.list-counter,
+.lista-vazia {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: var(--text-muted);
+    font-size: var(--fs-small);
+}
+
+.lista-vazia {
+    padding: 2rem 1rem;
+    text-align: center;
+    border: 2px dashed var(--surface-3);
+    border-radius: var(--radius-lg);
+}

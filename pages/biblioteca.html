@@ -129,6 +129,7 @@
                     <option value="ombros">Ombros</option>
                     <option value="biceps">Bíceps</option>
                     <option value="triceps">Tríceps</option>
+                    <option value="core">Core / Abdômen</option>
                 </select>
 
                 <label for="ordenar">Ordenar por:</label>
@@ -144,98 +145,16 @@
             <!-- Lista de Cartões de Exercícios -->
             <section class="library-grid" aria-labelledby="titulo-lista">
                 <h2 id="titulo-lista">Exercícios Cadastrados</h2>
+                <p id="contador-exercicios" class="list-counter" aria-live="polite"></p>
 
-                <article class="library-card">
-                    <span class="group-tag">PEITORAL</span>
-                    <h3>Supino Reto com Barra</h3>
-                    <p>Recorde Atual: <strong>100 kg</strong></p>
-                    <p class="trend trend-up">↑ +5 kg nos últimos 30 dias</p>
-                    <details class="exercise-instructions">
-                        <summary>Como executar</summary>
-                        <ol>
-                            <li>Deite no banco com os olhos alinhados à barra e os pés firmes no chão.</li>
-                            <li>Segure a barra um pouco mais aberto que os ombros e retraia as escápulas.</li>
-                            <li>Desça a barra controlada até tocar o meio do peito.</li>
-                            <li>Empurre de volta até estender os braços, sem tirar o quadril do banco.</li>
-                        </ol>
-                    </details>
-                    <div class="card-actions">
-                        <a href="detalhes.html" class="btn-link">📊 Ver Detalhes</a>
-                        <button type="button" class="btn-secondary">Atualizar PR</button>
-                        <button type="button" class="btn-secondary" aria-label="Editar informações de Supino Reto com Barra">✏️ Editar</button>
-                        <button type="button" class="btn-danger" aria-label="Excluir Supino Reto com Barra">🗑️ Excluir</button>
-                    </div>
-                </article>
-
-                <article class="library-card">
-                    <span class="group-tag">PERNAS</span>
-                    <h3>Agachamento Livre</h3>
-                    <p>Recorde Atual: <strong>130 kg</strong></p>
-                    <p class="trend trend-up">↑ +2,5 kg nos últimos 30 dias</p>
-                    <details class="exercise-instructions">
-                        <summary>Como executar</summary>
-                        <ol>
-                            <li>Apoie a barra no trapézio e afaste os pés na largura dos ombros.</li>
-                            <li>Inspire, contraia o abdômen e desça empurrando o quadril para trás.</li>
-                            <li>Desça até as coxas ficarem pelo menos paralelas ao chão.</li>
-                            <li>Suba empurrando o chão, mantendo os joelhos alinhados com os pés.</li>
-                        </ol>
-                    </details>
-                    <div class="card-actions">
-                        <a href="detalhes.html" class="btn-link">📊 Ver Detalhes</a>
-                        <button type="button" class="btn-secondary">Atualizar PR</button>
-                        <button type="button" class="btn-secondary" aria-label="Editar informações de Agachamento Livre">✏️ Editar</button>
-                        <button type="button" class="btn-danger" aria-label="Excluir Agachamento Livre">🗑️ Excluir</button>
-                    </div>
-                </article>
-
-                <article class="library-card">
-                    <span class="group-tag">COSTAS</span>
-                    <h3>Levantamento Terra</h3>
-                    <p>Recorde Atual: <strong>150 kg</strong></p>
-                    <p class="trend trend-flat">→ Mantido há 3 semanas</p>
-                    <details class="exercise-instructions">
-                        <summary>Como executar</summary>
-                        <ol>
-                            <li>Posicione a barra sobre o meio dos pés, com as canelas próximas a ela.</li>
-                            <li>Segure a barra com os braços estendidos e as costas neutras.</li>
-                            <li>Empurre o chão com as pernas e estenda o quadril ao mesmo tempo.</li>
-                            <li>Desça a barra rente às pernas, controlando o movimento.</li>
-                        </ol>
-                    </details>
-                    <div class="card-actions">
-                        <a href="detalhes.html" class="btn-link">📊 Ver Detalhes</a>
-                        <button type="button" class="btn-secondary">Atualizar PR</button>
-                        <button type="button" class="btn-secondary" aria-label="Editar informações de Levantamento Terra">✏️ Editar</button>
-                        <button type="button" class="btn-danger" aria-label="Excluir Levantamento Terra">🗑️ Excluir</button>
-                    </div>
-                </article>
-
-                <article class="library-card">
-                    <span class="group-tag">OMBROS</span>
-                    <h3>Desenvolvimento c/ Halteres</h3>
-                    <p>Recorde Atual: <strong>32 kg</strong></p>
-                    <p class="trend trend-down">↓ −2 kg (deload programado)</p>
-                    <details class="exercise-instructions">
-                        <summary>Como executar</summary>
-                        <ol>
-                            <li>Sente com as costas apoiadas e os halteres na altura dos ombros.</li>
-                            <li>Empurre os halteres para cima até quase encostarem no topo.</li>
-                            <li>Desça devagar até os cotovelos ficarem um pouco abaixo dos ombros.</li>
-                        </ol>
-                    </details>
-                    <div class="card-actions">
-                        <a href="detalhes.html" class="btn-link">📊 Ver Detalhes</a>
-                        <button type="button" class="btn-secondary">Atualizar PR</button>
-                        <button type="button" class="btn-secondary" aria-label="Editar informações de Desenvolvimento c/ Halteres">✏️ Editar</button>
-                        <button type="button" class="btn-danger" aria-label="Excluir Desenvolvimento c/ Halteres">🗑️ Excluir</button>
-                    </div>
-                </article>
-
+                <!-- Cards gerados pelo JavaScript (assets/js/biblioteca.js) a partir do localStorage -->
+                <div id="lista-exercicios" class="library-list"></div>
             </section>
 
         </main>
     </div>
 
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/biblioteca.js"></script>
 </body>
 </html>
