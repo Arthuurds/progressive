@@ -202,6 +202,31 @@ strong {
     display: none !important;
 }
 
+/* "Pular para o conteúdo": escondido até receber foco pelo teclado */
+.skip-link {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+    padding: 0.75rem 1.25rem;
+    background: var(--accent);
+    color: var(--brand-on-primary);
+    border-radius: var(--radius-pill);
+    font-weight: var(--fw-bold);
+    transform: translateY(-200%);
+    transition: transform var(--transition);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+    text-decoration: none;
+}
+
+/* O <main> recebe o foco do link, mas não precisa de contorno */
+main:focus {
+    outline: none;
+}
+
 /* Conteúdo apenas para leitores de ecrã */
 .sr-only {
     position: absolute;
