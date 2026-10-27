@@ -183,7 +183,10 @@ function hojeIso() {
 /* Compara os dois últimos registros do histórico para mostrar a progressão */
 function calcularTendencia(exercicio) {
     const historico = exercicio.historico || [];
-    if (historico.length < 2) {
+    if (historico.length === 0) {
+        return { tipo: 'flat', texto: '• Sem carga registrada' };
+    }
+    if (historico.length === 1) {
         return { tipo: 'flat', texto: '• Primeiro registro' };
     }
 

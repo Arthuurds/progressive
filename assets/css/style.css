@@ -2091,3 +2091,53 @@ button,
     border: 2px dashed var(--surface-3);
     border-radius: var(--radius-lg);
 }
+
+/* Validação do formulário */
+.field-error {
+    margin: 0.35rem 0 0;
+    color: var(--danger);
+    font-size: var(--fs-small);
+}
+
+.field-error:empty {
+    display: none;
+}
+
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+    border-color: var(--danger);
+    background: var(--danger-soft);
+}
+
+.form-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.form-feedback {
+    margin: 0;
+    font-size: var(--fs-small);
+    font-weight: var(--fw-semibold);
+}
+
+.form-feedback--sucesso {
+    color: var(--accent);
+}
+
+.form-feedback--erro {
+    color: var(--danger);
+}
+
+/* Card recém-cadastrado ou editado */
+.card-destaque {
+    animation: card-destaque 2s ease-out;
+}
+
+@keyframes card-destaque {
+    0% { box-shadow: 0 0 0 3px var(--accent); }
+    100% { box-shadow: 0 0 0 3px transparent; }
+}

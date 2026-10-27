@@ -46,20 +46,21 @@
             </header>
             
             <section class="add-exercise-section" id="form-cadastro-exercicio">
-                <h2>Cadastrar Novo Exercício</h2>
+                <h2 id="titulo-form">Cadastrar Novo Exercício</h2>
                 
-                <form action="#" method="POST" class="exercise-form">
+                <form id="form-exercicio" class="exercise-form" novalidate>
                     
                     <!-- Campo Texto: Nome -->
                     <div class="form-group">
                         <label for="nome-exercicio">Nome do Exercício:</label>
-                        <input type="text" id="nome-exercicio" name="nome_exercicio" required placeholder="Ex: Supino Inclinado com Halteres">
+                        <input type="text" id="nome-exercicio" name="nome_exercicio" required maxlength="60" placeholder="Ex: Supino Inclinado com Halteres" aria-describedby="erro-nome">
+                        <p class="field-error" id="erro-nome"></p>
                     </div>
 
                     <!-- Seleção: Grupo Muscular -->
                     <div class="form-group">
                         <label for="grupo-muscular">Grupo Muscular Principal:</label>
-                        <select id="grupo-muscular" name="grupo_muscular" required>
+                        <select id="grupo-muscular" name="grupo_muscular" required aria-describedby="erro-grupo">
                             <option value="">Selecione um grupo...</option>
                             <option value="peitoral">Peitoral</option>
                             <option value="costas">Costas</option>
@@ -67,14 +68,15 @@
                             <option value="ombros">Ombros</option>
                             <option value="biceps">Bíceps</option>
                             <option value="triceps">Tríceps</option>
-                            <option value="core">Core / Abdómen</option>
+                            <option value="core">Core / Abdômen</option>
                         </select>
+                        <p class="field-error" id="erro-grupo"></p>
                     </div>
 
                     <!-- Seleção: Equipamento -->
                     <div class="form-group">
                         <label for="equipamento">Equipamento Necessário:</label>
-                        <select id="equipamento" name="equipamento" required>
+                        <select id="equipamento" name="equipamento" required aria-describedby="erro-equipamento">
                             <option value="">Selecione...</option>
                             <option value="barra">Barra</option>
                             <option value="halter">Halteres</option>
@@ -82,12 +84,14 @@
                             <option value="polia">Polia / Cabo</option>
                             <option value="peso-corporal">Peso Corporal</option>
                         </select>
+                        <p class="field-error" id="erro-equipamento"></p>
                     </div>
 
                     <!-- Número: Carga Estimada / Recorde -->
                     <div class="form-group">
                         <label for="carga-inicial">Carga Inicial / PR (kg):</label>
-                        <input type="number" id="carga-inicial" name="carga_inicial" min="0" max="500" step="0.5" placeholder="0.0">
+                        <input type="number" id="carga-inicial" name="carga_inicial" min="0" max="500" step="0.5" placeholder="0.0" aria-describedby="erro-carga">
+                        <p class="field-error" id="erro-carga"></p>
                     </div>
 
                     <!-- Radio Buttons: Classificação -->
@@ -106,10 +110,14 @@
                     <!-- Textarea: Instruções -->
                     <div class="form-group">
                         <label for="instrucoes">Instruções de Execução:</label>
-                        <textarea id="instrucoes" name="instrucoes" rows="3" placeholder="Descreva brevemente os passos para a execução correta..."></textarea>
+                        <textarea id="instrucoes" name="instrucoes" rows="4" maxlength="1000" placeholder="Um passo por linha. Ex: Deite no banco com os pés firmes no chão." aria-describedby="erro-instrucoes"></textarea>
+                        <p class="field-error" id="erro-instrucoes"></p>
                     </div>
 
-                    <button type="submit" class="btn-success">💾 Salvar Exercício</button>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-success" id="btn-salvar">💾 Salvar Exercício</button>
+                        <p id="form-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+                    </div>
                 </form>
             </section>
 
