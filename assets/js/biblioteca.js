@@ -9,6 +9,7 @@ let exercicios = carregarExercicios();
 const listaEl = document.getElementById('lista-exercicios');
 const contadorEl = document.getElementById('contador-exercicios');
 const buscaEl = document.getElementById('busca');
+const filtroGrupoEl = document.getElementById('grupo');
 
 /* ---------- Listagem ---------- */
 
@@ -108,12 +109,19 @@ function renderizarLista(lista) {
         : `Mostrando ${lista.length} de ${total} exercícios`;
 }
 
-/* ---------- Pesquisa ---------- */
+/* ---------- Pesquisa e filtro ---------- */
 
-/* Pesquisa pelo nome, sem diferenciar maiúsculas nem acentos */
+/* Pesquisa pelo nome (sem diferenciar maiúsculas nem acentos)
+   e filtra pelo grupo muscular escolhido */
 function filtrarExercicios() {
     const termo = normalizarTexto(buscaEl.value);
-    return exercicios.filter((exercicio) => normalizarTexto(exercicio.nome).includes(termo));
+    const grupo = filtroGrupoEl.value;
+
+    return exercicios.filter((exercicio) => {
+        const nomeConfere = normalizarTexto(exercicio.nome).includes(termo);
+        const grupoConfere = grupo === 'todos' || exercicio.grupo === grupo;
+        return nomeConfere && grupoConfere;
+    });
 }
 
 function atualizarTela() {
@@ -121,6 +129,7 @@ function atualizarTela() {
 }
 
 buscaEl.addEventListener('input', atualizarTela);
+filtroGrupoEl.addEventListener('change', atualizarTela);
 
 /* Realça um card recém-salvo e rola a página até ele */
 function destacarCard(id) {
