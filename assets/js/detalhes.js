@@ -37,6 +37,10 @@ function preencherCabecalho() {
     if (exercicio.origem === 'wger') {
         adicionarInfo(meta, 'Fonte', 'base wger');
     }
+
+    // Leva para a biblioteca já com o formulário em modo de edição
+    document.getElementById('detalhe-editar').href =
+        `biblioteca.html?editar=${encodeURIComponent(exercicio.id)}#form-cadastro-exercicio`;
 }
 
 function preencherImagem() {

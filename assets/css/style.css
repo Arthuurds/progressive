@@ -2132,6 +2132,10 @@ textarea[aria-invalid="true"] {
     color: var(--danger);
 }
 
+.form-feedback--neutro {
+    color: var(--text-muted);
+}
+
 /* Card recém-cadastrado ou editado */
 .card-destaque {
     animation: card-destaque 2s ease-out;
@@ -2165,4 +2169,10 @@ textarea[aria-invalid="true"] {
 
 .nao-encontrado {
     text-align: center;
+}
+
+.details-actions {
+    margin: 0.25rem 0 1rem;
+    padding-top: 0;
+    border-top: 0;
 }

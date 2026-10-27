@@ -49,6 +49,8 @@
                 <h2 id="titulo-form">Cadastrar Novo Exercício</h2>
                 
                 <form id="form-exercicio" class="exercise-form" novalidate>
+                    <!-- Preenchido só durante a edição de um exercício existente -->
+                    <input type="hidden" id="exercicio-id" name="exercicio_id">
                     
                     <!-- Campo Texto: Nome -->
                     <div class="form-group">
@@ -116,6 +118,7 @@
 
                     <div class="form-actions">
                         <button type="submit" class="btn-success" id="btn-salvar">💾 Salvar Exercício</button>
+                        <button type="button" class="btn-secondary" id="btn-cancelar" hidden>Cancelar edição</button>
                         <p id="form-feedback" class="form-feedback" role="status" aria-live="polite"></p>
                     </div>
                 </form>

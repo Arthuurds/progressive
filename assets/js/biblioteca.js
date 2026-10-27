@@ -62,6 +62,16 @@ function criarCardExercicio(exercicio) {
     linkDetalhes.textContent = '📊 Ver Detalhes';
     acoes.append(linkDetalhes);
 
+    // Os botões só guardam a ação e o id; o clique é tratado na lista (delegação de eventos)
+    const botaoEditar = document.createElement('button');
+    botaoEditar.type = 'button';
+    botaoEditar.className = 'btn-secondary';
+    botaoEditar.dataset.acao = 'editar';
+    botaoEditar.dataset.id = exercicio.id;
+    botaoEditar.setAttribute('aria-label', `Editar ${exercicio.nome}`);
+    botaoEditar.textContent = '✏️ Editar';
+    acoes.append(botaoEditar);
+
     card.append(acoes);
     return card;
 }
@@ -214,11 +224,73 @@ function cadastrarExercicio(dados) {
     return novo;
 }
 
+/* ---------- Edição ---------- */
+
+const idEditandoEl = document.getElementById('exercicio-id');
+const tituloFormEl = document.getElementById('titulo-form');
+const botaoSalvarEl = document.getElementById('btn-salvar');
+const botaoCancelarEl = document.getElementById('btn-cancelar');
+
+function entrarModoEdicao(id) {
+    const exercicio = buscarExercicioPorId(exercicios, id);
+    if (!exercicio) {
+        return;
+    }
+
+    idEditandoEl.value = exercicio.id;
+    formEl.elements.nome_exercicio.value = exercicio.nome;
+    formEl.elements.grupo_muscular.value = exercicio.grupo;
+    formEl.elements.equipamento.value = exercicio.equipamento;
+    formEl.elements.carga_inicial.value = exercicio.carga ?? '';
+    formEl.elements.tipo_exercicio.value = exercicio.tipo;
+    formEl.elements.instrucoes.value = exercicio.instrucoes || '';
+
+    tituloFormEl.textContent = `Editar: ${exercicio.nome}`;
+    botaoSalvarEl.textContent = '💾 Salvar Alterações';
+    botaoCancelarEl.hidden = false;
+    mostrarErros({});
+    mostrarFeedback('', 'neutro');
+
+    document.getElementById('form-cadastro-exercicio').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    formEl.elements.nome_exercicio.focus({ preventScroll: true });
+}
+
+function sairModoEdicao() {
+    formEl.reset();
+    idEditandoEl.value = '';
+    tituloFormEl.textContent = 'Cadastrar Novo Exercício';
+    botaoSalvarEl.textContent = '💾 Salvar Exercício';
+    botaoCancelarEl.hidden = true;
+    mostrarErros({});
+}
+
+function editarExercicio(id, dados) {
+    const exercicio = buscarExercicioPorId(exercicios, id);
+    const cargaMudou = dados.carga !== null && dados.carga !== exercicio.carga;
+
+    Object.assign(exercicio, dados);
+
+    // Nova carga vira um registro no histórico (um por dia)
+    if (cargaMudou) {
+        exercicio.historico = exercicio.historico || [];
+        const ultimo = exercicio.historico[exercicio.historico.length - 1];
+        if (ultimo && ultimo.data === hojeIso()) {
+            ultimo.carga = dados.carga;
+        } else {
+            exercicio.historico.push({ data: hojeIso(), carga: dados.carga });
+        }
+    }
+
+    salvarExercicios(exercicios);
+    return exercicio;
+}
+
 formEl.addEventListener('submit', (evento) => {
     evento.preventDefault();
 
+    const idEditando = idEditandoEl.value || null;
     const dados = lerFormulario();
-    const erros = validarExercicio(dados, null);
+    const erros = validarExercicio(dados, idEditando);
     mostrarErros(erros);
 
     if (Object.keys(erros).length > 0) {
@@ -226,11 +298,35 @@ formEl.addEventListener('submit', (evento) => {
         return;
     }
 
-    const novo = cadastrarExercicio(dados);
-    formEl.reset();
-    atualizarTela();
-    mostrarFeedback(`"${novo.nome}" foi cadastrado na biblioteca.`, 'sucesso');
-    destacarCard(novo.id);
+    if (idEditando) {
+        const editado = editarExercicio(idEditando, dados);
+        sairModoEdicao();
+        atualizarTela();
+        mostrarFeedback(`"${editado.nome}" foi atualizado.`, 'sucesso');
+        destacarCard(editado.id);
+    } else {
+        const novo = cadastrarExercicio(dados);
+        formEl.reset();
+        atualizarTela();
+        mostrarFeedback(`"${novo.nome}" foi cadastrado na biblioteca.`, 'sucesso');
+        destacarCard(novo.id);
+    }
+});
+
+botaoCancelarEl.addEventListener('click', () => {
+    sairModoEdicao();
+    mostrarFeedback('Edição cancelada.', 'neutro');
+});
+
+/* Cliques nos botões dos cards (delegação: um único ouvinte para todos) */
+listaEl.addEventListener('click', (evento) => {
+    const botao = evento.target.closest('button[data-acao]');
+    if (!botao) {
+        return;
+    }
+    if (botao.dataset.acao === 'editar') {
+        entrarModoEdicao(botao.dataset.id);
+    }
 });
 
 /* Ao corrigir um campo, a mensagem de erro dele some */
@@ -244,3 +340,9 @@ formEl.addEventListener('input', (evento) => {
 });
 
 atualizarTela();
+
+/* Vindo da página de detalhes: biblioteca.html?editar=<id> já abre a edição */
+const idParaEditar = new URLSearchParams(window.location.search).get('editar');
+if (idParaEditar) {
+    entrarModoEdicao(idParaEditar);
+}
