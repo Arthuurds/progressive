@@ -161,6 +161,12 @@ a:hover {
     text-decoration: underline;
 }
 
+/* Link no meio de um texto: sublinhado, para não depender só da cor (WCAG 1.4.1) */
+p a:not([class]) {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
 img {
     max-width: 100%;
     height: auto;
