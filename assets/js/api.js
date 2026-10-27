@@ -193,6 +193,8 @@ function criarItemResultado(resultado, indice) {
         const imagem = document.createElement('img');
         imagem.src = resultado.imagem;
         imagem.alt = '';
+        imagem.width = 64;
+        imagem.height = 64;
         imagem.loading = 'lazy';
         imagem.className = 'api-result-img';
         item.append(imagem);
