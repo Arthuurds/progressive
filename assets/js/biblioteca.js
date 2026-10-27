@@ -271,19 +271,21 @@ function mostrarFeedback(mensagem, tipo) {
     feedbackEl.className = `form-feedback form-feedback--${tipo}`;
 }
 
-function criarExercicio(dados) {
+/* extras permite informar origem e imagem (usado na importação da wger) */
+function criarExercicio(dados, extras = {}) {
     return {
         id: gerarId(),
         ...dados,
         historico: dados.carga !== null ? [{ data: hojeIso(), carga: dados.carga }] : [],
         imagem: null,
         origem: 'manual',
-        criadoEm: new Date().toISOString()
+        criadoEm: new Date().toISOString(),
+        ...extras
     };
 }
 
-function cadastrarExercicio(dados) {
-    const novo = criarExercicio(dados);
+function cadastrarExercicio(dados, extras = {}) {
+    const novo = criarExercicio(dados, extras);
     exercicios.push(novo);
     salvarExercicios(exercicios);
     return novo;

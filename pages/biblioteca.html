@@ -124,6 +124,21 @@
                 </form>
             </section>
 
+            <!-- Busca na API pública wger: o resultado escolhido é cadastrado na biblioteca (localStorage) -->
+            <section class="api-section" aria-labelledby="titulo-api">
+                <h2 id="titulo-api">Importar da base wger</h2>
+                <p class="api-intro">Pesquise exercícios na base pública <a href="https://wger.de" target="_blank" rel="noopener">wger</a> e adicione à sua biblioteca com um clique.</p>
+
+                <form id="form-api" class="api-form" role="search" novalidate>
+                    <label for="busca-api" class="sr-only">Nome do exercício na base wger</label>
+                    <input type="search" id="busca-api" name="termo" placeholder="Ex: supino, remada, rosca..." autocomplete="off">
+                    <button type="submit" class="btn-primary" id="btn-buscar-api">🔎 Buscar</button>
+                </form>
+
+                <p id="status-api" class="api-status" role="status" aria-live="polite"></p>
+                <ul id="resultados-api" class="api-results"></ul>
+            </section>
+
             <!-- Barra de Filtros, Pesquisa e Ordenação -->
             <section class="filter-bar" aria-labelledby="titulo-filtros">
                 <h2 id="titulo-filtros" class="sr-only">Pesquisar, filtrar e ordenar exercícios</h2>
@@ -171,5 +186,6 @@
 
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/biblioteca.js"></script>
+    <script src="../assets/js/api.js"></script>
 </body>
 </html>

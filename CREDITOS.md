@@ -1,5 +1,13 @@
 # Créditos
 
+## Base de exercícios (API)
+
+A busca "Importar da base wger" da biblioteca (`pages/biblioteca.html`, `assets/js/api.js`) consulta a
+API pública do [wger](https://wger.de) (`https://wger.de/api/v2/`). Os nomes, descrições e imagens
+dos exercícios importados pertencem ao projeto wger e seus colaboradores e são distribuídos sob a licença
+[CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Exercícios importados aparecem com
+"Fonte: base wger" na página de detalhes.
+
 ## Mapa muscular
 
 O desenho do corpo usado no mapa muscular do dashboard (`pages/dashboard.html`) vem do
