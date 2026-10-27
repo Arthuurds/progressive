@@ -1471,7 +1471,7 @@ button,
     font-size: 0.75rem;
 }
 
-.heatmap li {
+.heatmap span {
     aspect-ratio: 1;
     background: var(--nivel);
     border-radius: 4px;
