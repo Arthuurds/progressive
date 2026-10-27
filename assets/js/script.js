@@ -48,7 +48,8 @@ const EXERCICIOS_INICIAIS = [
             { data: '2026-09-27', carga: 97.5 },
             { data: '2026-10-04', carga: 100 }
         ],
-        imagem: '../assets/img/supino_reto.gif',
+        imagem: '../assets/img/supino_reto-capa.jpg',
+        video: '../assets/video/supino_reto.mp4',
         origem: 'manual',
         criadoEm: '2026-09-01T10:00:00.000Z'
     },
@@ -124,12 +125,32 @@ function carregarExercicios() {
             return iniciais;
         }
         const lista = JSON.parse(salvo);
-        return Array.isArray(lista) ? lista : [];
+        if (!Array.isArray(lista)) {
+            return [];
+        }
+        if (migrarDados(lista)) {
+            salvarExercicios(lista);
+        }
+        return lista;
     } catch (erro) {
         // localStorage bloqueado ou conteúdo corrompido: segue só com os iniciais
         console.warn('Não foi possível ler o localStorage:', erro);
         return structuredClone(EXERCICIOS_INICIAIS);
     }
+}
+
+/* Atualiza dados salvos por versões antigas do site.
+   O GIF do supino (5,6 MB) foi trocado por um vídeo MP4 (90 KB) com imagem de capa. */
+function migrarDados(lista) {
+    let mudou = false;
+    for (const exercicio of lista) {
+        if (exercicio.imagem === '../assets/img/supino_reto.gif') {
+            exercicio.imagem = '../assets/img/supino_reto-capa.jpg';
+            exercicio.video = '../assets/video/supino_reto.mp4';
+            mudou = true;
+        }
+    }
+    return mudou;
 }
 
 function salvarExercicios(lista) {

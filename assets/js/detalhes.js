@@ -44,14 +44,38 @@ function preencherCabecalho() {
 }
 
 function preencherImagem() {
-    if (!exercicio.imagem) {
+    if (!exercicio.imagem && !exercicio.video) {
         // Sem imagem: as instruções ocupam a largura toda
         document.getElementById('detalhe-grid').classList.add('sem-imagem');
         return;
     }
+
+    const descricao = `Demonstração da execução de ${exercicio.nome}`;
     const imagem = document.getElementById('detalhe-imagem');
-    imagem.src = exercicio.imagem;
-    imagem.alt = `Demonstração da execução de ${exercicio.nome}`;
+
+    if (exercicio.video) {
+        const video = document.getElementById('detalhe-video');
+        video.src = exercicio.video;
+        video.poster = exercicio.imagem || '';
+        video.setAttribute('aria-label', descricao);
+        video.hidden = false;
+        imagem.hidden = true;
+
+        // Quem pede menos movimento vê a capa parada e decide se quer tocar
+        const menosMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (menosMovimento) {
+            video.controls = true;
+        } else {
+            video.autoplay = true;
+            video.play().catch(() => {
+                video.controls = true; // navegador bloqueou o autoplay: mostra os controles
+            });
+        }
+    } else {
+        imagem.src = exercicio.imagem;
+        imagem.alt = descricao;
+    }
+
     document.getElementById('detalhe-legenda').textContent = `Execução de ${exercicio.nome}.`;
     document.getElementById('detalhe-figura').hidden = false;
 }

@@ -1052,8 +1052,11 @@ button,
     margin: 0;
 }
 
-.exercise-illustration img {
+.exercise-illustration img,
+.exercise-illustration video {
+    display: block;
     width: 100%;
+    height: auto;
     background: #fff;
     border-radius: var(--radius-md);
 }
