@@ -2063,6 +2063,38 @@ button,
     .bar-chart-placeholder {
         gap: 6px;
     }
+
+    /* Sessão em telas estreitas (até 320px): a tabela de séries cabe sem rolagem.
+       A unidade já aparece no cabeçalho e no rótulo de cada campo, então sai da célula. */
+    .session-container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .session-exercise-card {
+        padding: 0.9rem;
+    }
+
+    .sets-table .unidade {
+        display: none;
+    }
+
+    .sets-table th {
+        padding: 0.5rem 0.25rem;
+        font-size: 0.65rem;
+        letter-spacing: 0.02em;
+    }
+
+    .sets-table td {
+        padding: 0.5rem 0.25rem;
+        font-size: 0.82rem;
+    }
+
+    .sets-table input[type="number"] {
+        width: 3.25rem;
+        padding: 0.45rem 0.25rem;
+        font-size: 0.95rem;
+    }
 }
 
 /* Respeita quem prefere menos movimento */
