@@ -187,6 +187,12 @@ strong {
     border-radius: var(--radius-sm);
 }
 
+/* O atributo hidden sempre esconde, mesmo em elementos com display definido por classe
+   (ex.: .btn-secondary usa inline-flex e anularia o hidden do botão "Cancelar edição") */
+[hidden] {
+    display: none !important;
+}
+
 /* Conteúdo apenas para leitores de ecrã */
 .sr-only {
     position: absolute;
