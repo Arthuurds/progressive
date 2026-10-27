@@ -70,7 +70,16 @@ function criarCardExercicio(exercicio) {
     botaoEditar.dataset.id = exercicio.id;
     botaoEditar.setAttribute('aria-label', `Editar ${exercicio.nome}`);
     botaoEditar.textContent = '✏️ Editar';
-    acoes.append(botaoEditar);
+
+    const botaoExcluir = document.createElement('button');
+    botaoExcluir.type = 'button';
+    botaoExcluir.className = 'btn-danger';
+    botaoExcluir.dataset.acao = 'excluir';
+    botaoExcluir.dataset.id = exercicio.id;
+    botaoExcluir.setAttribute('aria-label', `Excluir ${exercicio.nome}`);
+    botaoExcluir.textContent = '🗑️ Excluir';
+
+    acoes.append(botaoEditar, botaoExcluir);
 
     card.append(acoes);
     return card;
@@ -318,6 +327,45 @@ botaoCancelarEl.addEventListener('click', () => {
     mostrarFeedback('Edição cancelada.', 'neutro');
 });
 
+/* ---------- Exclusão ---------- */
+
+const avisoEl = document.getElementById('aviso');
+let temporizadorAviso = null;
+
+/* Mensagem flutuante no rodapé, some sozinha depois de alguns segundos */
+function mostrarAviso(mensagem) {
+    avisoEl.textContent = mensagem;
+    avisoEl.hidden = false;
+    clearTimeout(temporizadorAviso);
+    temporizadorAviso = setTimeout(() => {
+        avisoEl.hidden = true;
+    }, 3500);
+}
+
+function excluirExercicio(id) {
+    const exercicio = buscarExercicioPorId(exercicios, id);
+    if (!exercicio) {
+        return;
+    }
+
+    const confirmou = window.confirm(`Excluir "${exercicio.nome}" da biblioteca?\nO histórico de cargas também será apagado.`);
+    if (!confirmou) {
+        return;
+    }
+
+    exercicios = exercicios.filter((item) => item.id !== id);
+    salvarExercicios(exercicios);
+
+    // Se o exercício excluído estava aberto no formulário, cancela a edição
+    if (idEditandoEl.value === id) {
+        sairModoEdicao();
+        mostrarFeedback('', 'neutro');
+    }
+
+    atualizarTela();
+    mostrarAviso(`"${exercicio.nome}" foi excluído.`);
+}
+
 /* Cliques nos botões dos cards (delegação: um único ouvinte para todos) */
 listaEl.addEventListener('click', (evento) => {
     const botao = evento.target.closest('button[data-acao]');
@@ -326,6 +374,8 @@ listaEl.addEventListener('click', (evento) => {
     }
     if (botao.dataset.acao === 'editar') {
         entrarModoEdicao(botao.dataset.id);
+    } else if (botao.dataset.acao === 'excluir') {
+        excluirExercicio(botao.dataset.id);
     }
 });
 
