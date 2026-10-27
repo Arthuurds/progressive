@@ -1,5 +1,4 @@
-/* Fontes da marca: Outfit (títulos e números) e Inter (interface e texto) */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap");
+/* Fontes da marca (Outfit e Inter) são carregadas no <head> de cada página, com preconnect */
 
 /* ---------- 1. Variáveis (tokens de design) ----------
    Tokens da marca Progressive. Todas as combinações de texto
