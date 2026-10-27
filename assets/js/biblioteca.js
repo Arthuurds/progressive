@@ -10,6 +10,7 @@ const listaEl = document.getElementById('lista-exercicios');
 const contadorEl = document.getElementById('contador-exercicios');
 const buscaEl = document.getElementById('busca');
 const filtroGrupoEl = document.getElementById('grupo');
+const ordenarEl = document.getElementById('ordenar');
 
 /* ---------- Listagem ---------- */
 
@@ -124,12 +125,45 @@ function filtrarExercicios() {
     });
 }
 
+/* ---------- Ordenação ---------- */
+
+function compararNomes(a, b) {
+    return a.nome.localeCompare(b.nome, 'pt-BR', { sensitivity: 'base' });
+}
+
+/* Exercícios sem carga registrada ficam no fim nas ordenações por recorde */
+function cargaParaOrdenar(exercicio, semCarga) {
+    return exercicio.carga === null || exercicio.carga === undefined ? semCarga : exercicio.carga;
+}
+
+/* Devolve uma cópia ordenada; a lista original (e o localStorage) não muda */
+function ordenarExercicios(lista) {
+    const copia = [...lista];
+
+    switch (ordenarEl.value) {
+        case 'nome-desc':
+            return copia.sort((a, b) => compararNomes(b, a));
+        case 'pr-desc':
+            return copia.sort((a, b) => cargaParaOrdenar(b, -Infinity) - cargaParaOrdenar(a, -Infinity));
+        case 'pr-asc':
+            return copia.sort((a, b) => cargaParaOrdenar(a, Infinity) - cargaParaOrdenar(b, Infinity));
+        case 'grupo':
+            return copia.sort((a, b) =>
+                GRUPOS[a.grupo].localeCompare(GRUPOS[b.grupo], 'pt-BR') || compararNomes(a, b));
+        case 'recentes':
+            return copia.sort((a, b) => b.criadoEm.localeCompare(a.criadoEm));
+        default:
+            return copia.sort(compararNomes);
+    }
+}
+
 function atualizarTela() {
-    renderizarLista(filtrarExercicios());
+    renderizarLista(ordenarExercicios(filtrarExercicios()));
 }
 
 buscaEl.addEventListener('input', atualizarTela);
 filtroGrupoEl.addEventListener('change', atualizarTela);
+ordenarEl.addEventListener('change', atualizarTela);
 
 /* Realça um card recém-salvo e rola a página até ele */
 function destacarCard(id) {
