@@ -8,6 +8,7 @@ let exercicios = carregarExercicios();
 
 const listaEl = document.getElementById('lista-exercicios');
 const contadorEl = document.getElementById('contador-exercicios');
+const buscaEl = document.getElementById('busca');
 
 /* ---------- Listagem ---------- */
 
@@ -91,7 +92,9 @@ function renderizarLista(lista) {
     if (lista.length === 0) {
         const vazio = document.createElement('p');
         vazio.className = 'lista-vazia';
-        vazio.textContent = 'Nenhum exercício encontrado.';
+        vazio.textContent = exercicios.length === 0
+            ? 'Sua biblioteca está vazia. Cadastre o primeiro exercício acima.'
+            : 'Nenhum exercício encontrado. Tente outro termo ou limpe os filtros.';
         listaEl.append(vazio);
     } else {
         for (const exercicio of lista) {
@@ -105,9 +108,19 @@ function renderizarLista(lista) {
         : `Mostrando ${lista.length} de ${total} exercícios`;
 }
 
-function atualizarTela() {
-    renderizarLista(exercicios);
+/* ---------- Pesquisa ---------- */
+
+/* Pesquisa pelo nome, sem diferenciar maiúsculas nem acentos */
+function filtrarExercicios() {
+    const termo = normalizarTexto(buscaEl.value);
+    return exercicios.filter((exercicio) => normalizarTexto(exercicio.nome).includes(termo));
 }
+
+function atualizarTela() {
+    renderizarLista(filtrarExercicios());
+}
+
+buscaEl.addEventListener('input', atualizarTela);
 
 /* Realça um card recém-salvo e rola a página até ele */
 function destacarCard(id) {
