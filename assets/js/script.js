@@ -189,9 +189,18 @@ function formatarCarga(carga) {
     return carga.toLocaleString('pt-BR', { maximumFractionDigits: 2 }) + ' kg';
 }
 
+/* Datas no padrão brasileiro (dd/mm/aaaa) pela API de internacionalização do navegador.
+   O fuso UTC evita que "2026-10-04" vire 03/10 em quem está em UTC-3. */
+const FORMATO_DATA = new Intl.DateTimeFormat('pt-BR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    timeZone: 'UTC'
+});
+
 function formatarData(dataIso) {
-    const [ano, mes, dia] = dataIso.slice(0, 10).split('-');
-    return `${dia}/${mes}/${ano}`;
+    const data = new Date(`${dataIso.slice(0, 10)}T00:00:00Z`);
+    return FORMATO_DATA.format(data);
 }
 
 function hojeIso() {
